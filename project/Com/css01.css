@@ -24,7 +24,11 @@ button {
 button:hover {
   opacity: 0.6;
 }
-
+.btn-gray {
+    color: #000;
+    background-color: #f0f0f0;
+    border-color: #f0f0f0;
+}
    
 /*ノンブル計算-----------------------*/
 #dispSum {
