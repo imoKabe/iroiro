@@ -25,17 +25,17 @@ button:hover {
   opacity: 0.6;
 }
 .btn-gray {
-    color: #000;
-    background-color: #f0f0f0;
-    border-color: #f0f0f0;
+  color: #000;
+  background-color: #f0f0f0;
+  border-color: #f0f0f0;
 }
-   
+
 /*ノンブル計算-----------------------*/
 #dispSum {
   display: flex;
-  -webkit-align-items: center;      /* Safari etc. */
-  -ms-align-items    : center;      /* IE10        */
-  align-items        : center;
+  -webkit-align-items: center; /* Safari etc. */
+  -ms-align-items: center; /* IE10        */
+  align-items: center;
 }
 #sum {
   margin-right: 1em;
@@ -46,6 +46,12 @@ button:hover {
 #sumAlert {
   /*  font-size: small; */
 }
+
+@media screen and (max-width: 640px) {
+  .tblCalc, .tblCalc input, .tblCalc button {
+      font-size: small;
+  }
+}
 /* 
 .tblCalc tr {
   text-decoration: none;
@@ -55,7 +61,7 @@ button:hover {
 .tblCalc td {
   vertical-align: middle;
   cursor: grab;
-} 
+}
 .tblCalc td:nth-child(3),
 .tblCalc td:nth-child(4) {
   text-align: right;
