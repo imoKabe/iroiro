@@ -1,0 +1,67 @@
+html {
+  font-family: sans-serif;
+}
+body {
+}
+/* 
+.content {
+  margin: 1.5em auto;
+  background-color: #fff;
+  width: 90%;
+  border-radius: 0.5em;
+}
+.contentTitle {
+  padding: 0.25em 0.5em;
+  border-bottom: solid 2px #45ccccd2;
+}
+.contentArea {
+  padding: 1em 2em 2em;
+} */
+button {
+  cursor: pointer;
+  min-height: 2.5em;
+}
+button:hover {
+  opacity: 0.6;
+}
+
+   
+/*ノンブル計算-----------------------*/
+#dispSum {
+  display: flex;
+  -webkit-align-items: center;      /* Safari etc. */
+  -ms-align-items    : center;      /* IE10        */
+  align-items        : center;
+}
+#sum {
+  margin-right: 1em;
+  padding: 0.5em 0.75em;
+  border: solid 1px #ddd;
+  border-radius: 0.25em;
+}
+#sumAlert {
+  /*  font-size: small; */
+}
+/* 
+.tblCalc tr {
+  text-decoration: none;
+  border-bottom: solid 1px #ddd;
+}*/
+
+.tblCalc td {
+  vertical-align: middle;
+  cursor: grab;
+} 
+.tblCalc td:nth-child(3),
+.tblCalc td:nth-child(4) {
+  text-align: right;
+  padding-right: 2em;
+}
+.tblCalc td:nth-child(5),
+.tblCalc td:nth-child(6) {
+  text-align: center;
+}
+
+.page {
+  max-width: 5em !important;
+}
