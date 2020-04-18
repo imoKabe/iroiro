@@ -18,14 +18,18 @@
       rel="stylesheet"
       href="http://code.jquery.com/ui/1.12.1/themes/hot-sneaks/jquery-ui.css"
     />
+    <link
+      rel="stylesheet"
+      href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css"
+    />
     <link href="../../Com/LigatureSymbols/style.css" rel="stylesheet" />
 
     <!-- my CSS -->
     <link href="../../Com/css01.css" rel="stylesheet" />
-    <title>Hello, world!</title>
+    <title>ページ数からノンブル分かるやつ</title>
   </head>
   <body>
-    <nav class="navbar navbar-expand-sm sticky-top navbar-dark bg-info mb-2">
+    <nav class="navbar navbar-expand-sm navbar-dark bg-info mb-2">
       <button
         class="navbar-toggler"
         type="button"
@@ -38,21 +42,36 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <a class="navbar-brand" href="#">imoTools</a>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#"
+              >ページ数からノンブル分かるやつ
+              <span class="sr-only">(current)</span></a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- 
       <div class="collapse navbar-collapse">
         <ul class="navbar-nav">
           <li class="nav-item active">
             <a class="nav-link" href="#">ページ数からノンブル分かるやつ</a>
           </li>
-          <!--           <li class="nav-item">
+              <li class="nav-item">
             <a class="nav-link" href="#">データ一覧</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">エクスポート</a>
-          </li> -->
+          </li>
         </ul>
-      </div>
+      </div> -->
     </nav>
-
     <!-- Post Content -->
     <article>
       <div class="container">
@@ -72,8 +91,8 @@
                     <th>ページ数</th>
                     <th>開始<br />ノンブル</th>
                     <th>終了<br />ノンブル</th>
-                    <th>左・右<br />始まり</th>
-                    <th>現在行を削除</th>
+                    <th>左右<br />始まり</th>
+                    <th>行の削除</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -105,9 +124,10 @@
                       <label class="sayu"></label>
                     </td>
                     <td>
-                      <button class="del btn btn-gray lsf-icon" title="delete">
-                        削除
-                      </button>
+                      <button
+                        class="del btn btn-gray lsf-icon"
+                        title="delete"
+                      ></button>
                     </td>
                   </tr>
                   <tr>
@@ -138,9 +158,10 @@
                       <label class="sayu"></label>
                     </td>
                     <td>
-                      <button class="del btn btn-gray lsf-icon" title="delete">
-                        削除
-                      </button>
+                      <button
+                        class="del btn btn-gray lsf-icon"
+                        title="delete"
+                      ></button>
                     </td>
                   </tr>
                   <tr>
@@ -171,9 +192,10 @@
                       <label class="sayu"></label>
                     </td>
                     <td>
-                      <button class="del btn btn-gray lsf-icon" title="delete">
-                        削除
-                      </button>
+                      <button
+                        class="del btn btn-gray lsf-icon"
+                        title="delete"
+                      ></button>
                     </td>
                   </tr>
                   <tr>
@@ -204,9 +226,10 @@
                       <label class="sayu"></label>
                     </td>
                     <td>
-                      <button class="del btn btn-gray lsf-icon" title="delete">
-                        削除
-                      </button>
+                      <button
+                        class="del btn btn-gray lsf-icon"
+                        title="delete"
+                      ></button>
                     </td>
                   </tr>
                 </tbody>
@@ -226,15 +249,10 @@
 
               <br /><br /><br />
               <!--      ------------
-    
-    
             単体：<a href="mailto:mail@example.com" class="lsf">check</a><br />
             ビフォアでアイコン<div class="lsf-icon" title="check">Twitter</div>
-            
-            --------------
-     -->
+            --------------     -->
             </div>
-
             <hr />
             <h2 class="">使い方</h2>
             <p>
@@ -268,29 +286,26 @@
             </ul>
           </div>
         </div>
-        <p class="copyright text-muted text-center">Copyright &copy; 2020 imoTools</p>
+        <p class="copyright text-muted text-center">
+          Copyright &copy; 2020 imoTools
+        </p>
       </div>
     </footer>
 
     <!-- Optional JavaScript -->
-    <script src="../../Com/jQuery/jquery-3.5.0.min.js"></script>
-    <link
-      rel="stylesheet"
-      href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css"
-    />
+<script src="../../Com/jQuery/jquery-3.5.0.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-
-    <!--     <script
-      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+      integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
       crossorigin="anonymous"
-    ></script> -->
-
+    ></script>
     <script
       src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
       integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
       crossorigin="anonymous"
-    ></script>
+    ></script> 
+
     <script type="text/javascript" src="../../Com/nombre.js"></script>
   </body>
 </html>

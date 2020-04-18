@@ -71,6 +71,9 @@ button:hover {
 .tblCalc td:nth-child(6) {
   text-align: center;
 }
+.sayu {
+  width: 2em;
+}
 
 .page {
   max-width: 5em !important;

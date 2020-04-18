@@ -97,9 +97,9 @@ function sumEach() {
     /*     左右表示 */
     $(this).find(".sayu").text("");
     if (parseInt(start.text()) % 2 == 0) {
-      $(this).find(".sayu").append('<img src="../../Com/img/rightBook.png" alt="右" height="40">');
+      $(this).find(".sayu").append('<img class="sayu" src="../../Com/img/rightBook.png" alt="右">');
     } else {
-      $(this).find(".sayu").append('<img src="../../Com/img/leftBook.png" alt="左" height="40">');
+      $(this).find(".sayu").append('<img class="sayu" src="../../Com/img/leftBook.png" alt="左">');
     }
   
   });
