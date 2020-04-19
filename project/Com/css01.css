@@ -31,17 +31,26 @@ button:hover {
 }
 
 /*ノンブル計算-----------------------*/
+label {
+  margin-bottom: 0 !important;
+}
+
 #dispSum {
+  width:100%;
+  padding:0.4em 0;
   display: flex;
   -webkit-align-items: center; /* Safari etc. */
   -ms-align-items: center; /* IE10        */
   align-items: center;
+  background-color: #fff;
+  border-bottom: solid 1px #ddd;
 }
 #sum {
   margin-right: 1em;
-  padding: 0.5em 0.75em;
+  padding: 0.25em 0.75em;
   border: solid 1px #ddd;
   border-radius: 0.25em;
+  background-color: #fff;
 }
 #sumAlert {
   /*  font-size: small; */
@@ -52,35 +61,27 @@ button:hover {
       font-size: small;
   }
 }
-/* 
-.tblCalc tr {
-  text-decoration: none;
-  border-bottom: solid 1px #ddd;
-}*/
 
+.tblCalc th {
+  text-align: center;
+}
 .tblCalc td {
   vertical-align: middle;
-  cursor: grab;
+  text-align: center;
 }
-
 
 .tblCalc tr ,.tblCalc td {
   padding:0;
 }
 
-.tblCalc td:nth-child(3),
-.tblCalc td:nth-child(4) {
-  text-align: right;
-  padding-right: 2em;
-}
-.tblCalc td:nth-child(5),
-.tblCalc td:nth-child(6) {
-  text-align: center;
-}
+/* アイコン・画像 */
 .sayu {
   width: 2em;
 }
-
+span.move{
+  cursor: pointer;
+}
+/* テキストボックス */
 .page {
   max-width: 5em !important;
 }

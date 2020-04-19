@@ -2,6 +2,8 @@ $(function () {
   // 初期表示時
   var sum;
   var option = {
+    handle: 'span.move',
+    axis: 'y',
     stop: function(event, ui){
       calc();
   }

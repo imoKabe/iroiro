@@ -56,21 +56,6 @@
           </li>
         </ul>
       </div>
-
-      <!-- 
-      <div class="collapse navbar-collapse">
-        <ul class="navbar-nav">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">ページ数からノンブル分かるやつ</a>
-          </li>
-              <li class="nav-item">
-            <a class="nav-link" href="#">データ一覧</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">エクスポート</a>
-          </li>
-        </ul>
-      </div> -->
     </nav>
     <!-- Post Content -->
     <article>
@@ -80,14 +65,15 @@
             <!--   <h1>ページ数からノンブル分かるやつ</h1> -->
             <br />
             <div class="">
-              <div id="dispSum" class="mb-2">
+              <div id="dispSum" class="mb-2 sticky-top">
                 <label id="sum"></label> <label id="sumAlert"></label>
               </div>
 
               <table id="tblSortable" class="table table-condensed tblCalc">
-                <thead>
+                <thead class="">
                   <tr>
-                    <th>名前</th>
+                    <th></th>
+                    <th>タイトル</th>
                     <th>ページ</th>
                     <th>開始</th>
                     <th>終了</th>
@@ -97,6 +83,9 @@
                 </thead>
                 <tbody>
                   <tr>
+                    <td class="">
+                      <span class="lsf-icon move" title="move"></span>
+                    </td>
                     <td class="">
                       <input
                         type="text"
@@ -131,6 +120,9 @@
                     </td>
                   </tr>
                   <tr>
+                    <td class="">
+                      <span class="lsf-icon move" title="move"></span>
+                    </td>
                     <td>
                       <input
                         type="text"
@@ -165,6 +157,9 @@
                     </td>
                   </tr>
                   <tr>
+                    <td class="">
+                      <span class="lsf-icon move" title="move"></span>
+                    </td>
                     <td>
                       <input
                         type="text"
@@ -199,6 +194,9 @@
                     </td>
                   </tr>
                   <tr>
+                    <td class="">
+                      <span class="lsf-icon move" title="move"></span>
+                    </td>
                     <td>
                       <input
                         type="text"
@@ -258,7 +256,7 @@
             <p>
               個々のページ数を入力すると、自動で開始ページと終了ページのノンブル（全体の通し番号）を計算します。<br /><br />
               追加ボタンで行が増やせます。<br />
-              行をドラッグすることで、順番の並び替えが可能です。<br />
+              左の「<span class="lsf-icon move" title="move"></span>」をドラッグすることで、順番の並び替えが可能です。<br />
               左右どちらのページから開始するかも表示していますが、これは右とじ（縦書き、漫画や国語の教科書と同じ開き方）にしか対応していません。
             </p>
           </div>
@@ -293,7 +291,7 @@
     </footer>
 
     <!-- Optional JavaScript -->
-<script src="../../Com/jQuery/jquery-3.5.0.min.js"></script>
+    <script src="../../Com/jQuery/jquery-3.5.0.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
@@ -304,7 +302,7 @@
       src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
       integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
       crossorigin="anonymous"
-    ></script> 
+    ></script>
 
     <script type="text/javascript" src="../../Com/nombre.js"></script>
   </body>
