@@ -62,6 +62,12 @@ button:hover {
   vertical-align: middle;
   cursor: grab;
 }
+
+
+.tblCalc tr ,.tblCalc td {
+  padding:0;
+}
+
 .tblCalc td:nth-child(3),
 .tblCalc td:nth-child(4) {
   text-align: right;
