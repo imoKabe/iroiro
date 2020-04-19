@@ -23,7 +23,7 @@
       href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css"
     />
     <link href="../../Com/LigatureSymbols/style.css" rel="stylesheet" />
-
+    <link rel="stylesheet" href="../../Com/shareStyle.css" />
     <!-- my CSS -->
     <link href="../../Com/css01.css" rel="stylesheet" />
     <title>ページ数からノンブル分かるやつ</title>
@@ -61,9 +61,7 @@
     <article>
       <div class="container">
         <div class="row">
-          <div class="col-lg-10 col-md-11">
-            <!--   <h1>ページ数からノンブル分かるやつ</h1> -->
-            <br />
+          <div class="">
             <div class="">
               <div id="dispSum" class="mb-2 sticky-top">
                 <label id="sum"></label> <label id="sumAlert"></label>
@@ -256,7 +254,8 @@
             <p>
               個々のページ数を入力すると、自動で開始ページと終了ページのノンブル（全体の通し番号）を計算します。<br /><br />
               追加ボタンで行が増やせます。<br />
-              左の「<span class="lsf-icon move" title="move"></span>」をドラッグすることで、順番の並び替えが可能です。<br />
+              左の「<span class="lsf-icon move" title="move"></span
+              >」をドラッグすることで、順番の並び替えが可能です。<br />
               左右どちらのページから開始するかも表示していますが、これは右とじ（縦書き、漫画や国語の教科書と同じ開き方）にしか対応していません。
             </p>
           </div>
@@ -269,17 +268,63 @@
     <!-- Footer -->
     <footer>
       <div class="container">
-        <div class="row">
-          <div class="col-lg-10 col-md-11">
-            <ul class="list-inline text-center">
-              <li class="lstShare">
-                <a href="#"> </a>
+        <div class="">
+          <div class="text-center">
+            <!--     <ul class="list-inline text-center shareList"> -->
+
+            <!--             <li class="list-inline-item"><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fimokabe.github.io%2Firoiro%2F&quote=" title="Share on Facebook" target="_blank" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(document.URL) + '&quote=' + encodeURIComponent(document.URL)); return false;"><img alt="Share on Facebook" src="images/flat_web_icon_set/color/Facebook.png" /></a></li>
+              <li class="list-inline-item"><a href="https://twitter.com/intent/tweet?source=https%3A%2F%2Fimokabe.github.io%2Firoiro%2F&text=:%20https%3A%2F%2Fimokabe.github.io%2Firoiro%2F" target="_blank" title="Tweet" onclick="window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(document.title) + ':%20'  + encodeURIComponent(document.URL)); return false;"><img alt="Tweet" src="images/flat_web_icon_set/color/Twitter.png" /></a></li>
+              <li class="list-inline-item"><a href="https://plus.google.com/share?url=https%3A%2F%2Fimokabe.github.io%2Firoiro%2F" target="_blank" title="Share on Google+" onclick="window.open('https://plus.google.com/share?url=' + encodeURIComponent(document.URL)); return false;"><img alt="Share on Google+" src="images/flat_web_icon_set/color/Google+.png" /></a></li>
+              <li class="shareList__item"><a class="shareList__link lsf-icon icon-twitter" href="#" target="_blank" title="Twitter"></a></li>
+   -->
+            <ul class="shareList">
+              <li class="shareList__item">
+                <a
+                  class="shareList__link lsf-icon icon-twitter"
+                  href="javascript:window.open('http://twitter.com/share?text='+encodeURIComponent(document.title)+'&url='+encodeURIComponent(location.href),'sharewindow','width=550, height=450, personalbar=0, toolbar=0, scrollbars=1, resizable=!');"
+                  target="_blank"
+                  title="twitter"
+                ></a>
               </li>
-              <li class="list-inline-item">
-                <a href="#"> </a>
+              <li class="shareList__item">
+                <a
+                  class="shareList__link lsf-icon icon-facebook"
+                  href="javascript:window.open('http://www.facebook.com/sharer.php?u='+encodeURIComponent(location.href),'sharewindow','width=550, height=450, personalbar=0, toolbar=0, scrollbars=1, resizable=!');"
+                  target="_blank"
+                  title="facebook"
+                ></a>
               </li>
-              <li class="list-inline-item">
-                <a href="#"> </a>
+              <li class="shareList__item">
+                <a
+                  class="shareList__link lsf-icon icon-google-plus"
+                  href="javascript:window.open('https://plus.google.com/share?url='+encodeURIComponent(location.href),'sharewindow','width=550, height=450, personalbar=0, toolbar=0, scrollbars=1, resizable=!');"
+                  target="_blank"
+                  title="google"
+                ></a>
+              </li>
+              <li class="shareList__item">
+                <a
+                  class="shareList__link lsf-icon icon-hatebu"
+                  href="#"
+                  target="_blank"
+                  title="hatena"
+                ></a>
+              </li>
+              <li class="shareList__item">
+                <a
+                  class="shareList__link lsf-icon icon-rss"
+                  href="#"
+                  target="_blank"
+                  title="rss"
+                ></a>
+              </li>
+              <li class="shareList__item">
+                <a
+                  class="shareList__link lsf-icon icon-line"
+                  href="javascript:window.open('http://line.me/R/msg/text/?'+encodeURIComponent(document.title)+'%20'+encodeURIComponent(location.href),'sharewindow','width=550, height=450, personalbar=0, toolbar=0, scrollbars=1, resizable=!');"
+                  target="_blank"
+                  title="line"
+                ></a>
               </li>
             </ul>
           </div>

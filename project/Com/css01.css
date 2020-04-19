@@ -36,8 +36,8 @@ label {
 }
 
 #dispSum {
-  width:100%;
-  padding:0.4em 0;
+  width: 100%;
+  padding: 0.4em 0;
   display: flex;
   -webkit-align-items: center; /* Safari etc. */
   -ms-align-items: center; /* IE10        */
@@ -57,8 +57,10 @@ label {
 }
 
 @media screen and (max-width: 640px) {
-  .tblCalc, .tblCalc input, .tblCalc button {
-      font-size: small;
+  .tblCalc,
+  .tblCalc input,
+  .tblCalc button {
+    font-size: small;
   }
 }
 
@@ -70,15 +72,16 @@ label {
   text-align: center;
 }
 
-.tblCalc tr ,.tblCalc td {
-  padding:0;
+.tblCalc tr,
+.tblCalc td {
+  padding: 0;
 }
 
 /* アイコン・画像 */
 .sayu {
   width: 2em;
 }
-span.move{
+span.move {
   cursor: pointer;
 }
 /* テキストボックス */
