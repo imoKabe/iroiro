@@ -88,3 +88,6 @@ span.move {
 .page {
   max-width: 5em !important;
 }
+.txtArea{
+  padding:1em;
+}
