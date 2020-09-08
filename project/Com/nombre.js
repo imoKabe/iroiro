@@ -1,5 +1,7 @@
 $(function () {
   // 初期表示時
+  calc();
+
   var sum;
   var option = {
     handle: 'span.move',
@@ -8,8 +10,8 @@ $(function () {
       calc();
   }
   }
+  
   $("#tblSortable tbody").sortable(option);
-  calc();
 });
 
 // ページ変更時
