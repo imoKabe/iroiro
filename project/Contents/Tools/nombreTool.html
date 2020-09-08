@@ -29,6 +29,35 @@
     <title>ページ数からノンブル分かるやつ</title>
   </head>
   <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">imoTools</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse " id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#"
+              >ページ数からノンブル分かるやつ
+              <span class="sr-only">(current)</span></a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://note.com/kashiri">note（外部リンク）</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+<!-- 
     <nav class="navbar navbar-expand-sm navbar-dark bg-info mb-2">
       <button
         class="navbar-toggler"
@@ -56,7 +85,8 @@
           </li>
         </ul>
       </div>
-    </nav>
+    </nav>  -->
+
     <!-- Post Content -->
     <article>
       <div class="container">
@@ -258,42 +288,15 @@
               >」をドラッグすることで、順番の並び替えが可能です。<br />
               左右どちらのページから開始するかも表示していますが、これは右とじ（縦書き、漫画や国語の教科書と同じ開き方）にしか対応していません。
             </p>
-            <p>以下は、実際の漫画アンソロ/合同誌を想定したサンプルです。<br />
-              漫画なので、すべて左はじまりになるよう調整しています。</p>
-            <img src="./gamen.png" width="300px">
+            <p>
+              以下は、実際の漫画アンソロ/合同誌を想定したサンプルです。<br />
+              漫画なので、すべて左はじまりになるよう調整しています。
+            </p>
+            <img src="./gamen.png" width="300px" />
           </div>
         </div>
       </div>
     </article>
-
-
-
-
-    <div class="container mb-5">
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Navbar w/ text</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-          <i class="material-icons">dehaze</i>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarText">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Features</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Pricing</a>
-            </li>
-          </ul>
-          <span class="navbar-text">
-            Navbar text with an inline element
-          </span>
-        </div>
-      </nav>
-    </div>
-
 
     <hr />
 
@@ -335,16 +338,21 @@
                   title="hatena"
                 ></a>
               </li> -->
-              
+
               <li class="shareList__item">
                 <a
                   class="shareList__link lsf-icon icon-hatebu"
                   href="https://b.hatena.ne.jp/entry/s/imokabe.github.io/iroiro/project/Contents/Tools/nombreTool.html"
                   target="_blank"
-                  data-hatena-bookmark-layout="basic" 
+                  data-hatena-bookmark-layout="basic"
                   title="hatena"
                 ></a>
-                <script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+                <script
+                  type="text/javascript"
+                  src="https://b.st-hatena.com/js/bookmark_button.js"
+                  charset="utf-8"
+                  async="async"
+                ></script>
               </li>
               <!--           <li class="shareList__item">
                 <a
@@ -370,17 +378,18 @@
         </p>
       </div>
     </footer>
-    
-    <!-- <a href="https://b.hatena.ne.jp/entry/s/imokabe.github.io/iroiro/project/Contents/Tools/nombreTool.html" 
-    class="hatena-bookmark-button" 
-    data-hatena-bookmark-layout="basic" 
-    title="このエントリーをはてなブックマークに追加">
-    <img src="https://b.st-hatena.com/images/v4/public/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a>
-    <script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
-     -->
-    
+
     <!-- Optional JavaScript -->
-    <script src="../../Com/jQuery/jquery-3.5.0.min.js"></script>
+    <!-- いらないなら、jQueryフォルダも消していい -->
+    <!-- <script src="../../Com/jQuery/jquery-3.5.0.min.js"></script> -->
+
+
+    <script
+    src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"
+  ></script>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
