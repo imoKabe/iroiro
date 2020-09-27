@@ -163,25 +163,19 @@ function clickSave(){
       data[i][j] = cells.eq(j).find('input').val();//i行目j列のインプット文字列を取得
     }
   }
-  $.cookie('rowNam', rowNam);
-  $.cookie('contents', data);
-  
-//toridasiイメージ // 
-//alert(data[1][1].trim());//test
-//alert(data[1][2].trim());//test
+  var titles = "";
+  var pages = "";
+  //必要な分だけ格納
+  for(var j=1; j <= rowNam ; j++ ){
+    titles = titles + data[j][1].trim();
+    titles = titles + ",";
+    pages = pages + data[j][2].trim();
+    pages = pages + ",";
+  }
 
-var titles = "";
-var pages = "";
-//必要な分だけ格納しよう
-for(var j=1; j <= rowNam ; j++ ){
-  titles = titles + data[j][1].trim();
-  titles = titles + ",";
-  pages = pages + data[j][2].trim();
-  pages = pages + ",";
-}
-
-  $.cookie('titles', titles);
-  $.cookie('pages', pages);
-  alert("しばらく保存しました。");
+  $.cookie('rowNam', rowNam, { expires: 180 });
+  $.cookie('titles', titles, { expires: 180 });
+  $.cookie('pages', pages, { expires: 180 });
+  alert("Cookieに入力情報を保存しました。\n次回同じブラウザからのアクセス時、復元します。");
 
 }
