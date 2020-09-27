@@ -29,20 +29,55 @@
     <title>ページ数からノンブル分かるやつ</title>
   </head>
   <body>
-    <nav class="navbar navbar-dark bg-info">
-      <a class="navbar-brand" href="#">imoTools</a>
+    <nav class="navbar navbar-expand navbar-dark bg-info">
+      <a class="navbar-brand" href="#">ページ数からノンブル分かるやつ</a>
+
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbar"
+        aria-controls="navbar"
+        aria-expanded="false"
+        aria-label="ナビゲーションの切替"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
       <div class=".collapse.show" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-          <!-- <li class="nav-item active">
-            <a class="nav-link" href="#"
-              >ページ数からノンブル分かるやつ
-              <span class="sr-only">(current)</span></a
+          <li class="nav-item">
+            <a class="nav-link" href="./imoToolUsage.html">利用規約</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle active"
+              href="#"
+              id="dropdown"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+              >ウェブツール</a
             >
-          </li> -->
+            <div
+              class="dropdown-menu"
+              aria-labelledby="dropdown"
+              style="z-index: 1030 !important"
+            >
+              <a class="dropdown-item active" href="./nombreTool.html"
+                >ページ数からノンブル分かるやつ</a
+              >
+              <a class="dropdown-item" href="./randomEchiTool.html"
+                >ランダムえちえちプロット</a
+              >
+              <a class="dropdown-item" href="./randomHorrorTool.html"
+                >ランダムホラープロット（準備中）</a
+              >
+            </div>
+          </li>
           <li class="nav-item">
             <a class="nav-link" href="https://note.com/kashiri"
-              >note（外部リンク）</a
+              >note（紹介記事など）</a
             >
           </li>
         </ul>
@@ -222,20 +257,31 @@
                   </tr>
                 </tbody>
               </table>
-
-              <button class="addCopy btn btn-info lsf-icon" title="add">
-                最終行をコピーして追加
-              </button>
+              <div class="">
+                <button class="addCopy btn btn-info lsf-icon" title="add">
+                  最終行をコピーして追加
+                </button>
+                <button class="addAdjust btn btn-gray lsf-icon" title="add">
+                  調整用１P追加
+                </button>
+                <button class="addLast btn btn-gray lsf-icon" title="add">
+                  奥付・裏表紙追加
+                </button>
+              </div>
+              <div style="height: 0.5em"></div>
+              <button
+                id="btnSave"
+                class="btn btn-secondary lsf-icon"
+                title="time"
+                onclick="clickSave()"
+              >
+                しばらく保存する</button
+              ><br />
+              <span class="text-muted small"
+                >※ブラウザのCookieにデータを保存し、次回アクセス時に復元できるようにします（後述）</span
+              >
               <br />
-              <div style="height: 0.5em;"></div>
-              <button class="addAdjust btn btn-gray lsf-icon" title="add">
-                調整用１P追加
-              </button>
-              <button class="addLast btn btn-gray lsf-icon" title="add">
-                奥付・裏表紙追加
-              </button>
-
-              <br /><br /><br />
+              <br />
               <!--      ------------
             単体：<a href="mailto:mail@example.com" class="lsf">check</a><br />
             ビフォアでアイコン<div class="lsf-icon" title="check">Twitter</div>
@@ -255,8 +301,29 @@
                 以下は、実際の漫画アンソロ/合同誌を想定したサンプルです。<br />
                 漫画なので、すべて左はじまりになるよう調整しています。
               </p>
+
+              <img src="./gamen.png" width="300px" />
+              <br />
+              <br />
+              <h4 class="">Cookieについて</h4>
+              Cookieとは、閲覧者のブラウザにログイン情報などのテキストデータを保存する機能で、多くのウェブサイトに使われています。<br />
+              当ページでは、同ブラウザによる前回の入力情報の復元にのみ使用しています。有効期限は約半年です。<br />
+              基本的には、画面のリフレッシュ時に前回「保存する」ボタンを押したときの状態を復元します。<br />
+              Cookieの有効期限切れ、あるいはブラウザでのCookieクリアなどにより復元できなくなる場合があるので、
+              確定した情報の保存・共有はスクリーンショットでの画像形式をおすすめします。
+              <br /><br />
+              <h4 class="">利用規約</h4>
+              常識の範囲内の使用は完全フリーですが、シェア＆使ったよ報告していただけると嬉しいです。<br />
+              詳しい利用規約は<a href="./imoToolUsage.html">こちら</a>。<br />
+              <br />
+              <a
+                href="https://giftee.co/u/kabekabe"
+                class="btn btn-outline-info mt-1"
+                target="_blank"
+                >開発者にコーヒーをおごる</a
+              >
+              （gifteeへのリンクです）
             </div>
-            <img src="./gamen.png" width="300px" />
           </div>
         </div>
       </div>
@@ -338,7 +405,7 @@
           </div>
         </div>
         <p class="copyright text-muted text-center">
-          Copyright &copy; 2020 imoTools
+          Copyright &copy; imoTools
         </p>
       </div>
     </footer>
@@ -367,7 +434,8 @@
     ></script>
     <!-- スマホ対応 -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
-
+    <!-- Cookie -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
     <script type="text/javascript" src="../../Com/nombre.js"></script>
   </body>
 </html>
