@@ -8,10 +8,36 @@ $(function () {
     axis: 'y',
     stop: function(event, ui){
       calc();
-  }
+    }
   }
   
   $("#tblSortable tbody").sortable(option);
+  
+  // クッキーから復元
+    var titles = $.cookie('titles');
+    var pages = $.cookie('pages');
+    var rowNam = $.cookie('rowNam');
+
+  if((titles != null) && (pages != null)&& (rowNam != null)){
+
+    //配列化
+    var titlesArray = titles.split(',');
+    var pagesArray = pages.split(',');
+
+    // テーブルの行最初以外削除
+    $('#tblSortable tbody tr:not(:eq(0))').remove();
+    
+    //行の数だけコピーして増やす
+    for(var j=0; j < rowNam ; j++ ){
+      addRow(titlesArray[j]+'', pagesArray[j]);
+    }
+    
+    // テーブルの行を最初だけ削除
+    $('#tblSortable tbody tr').eq(0).remove();
+
+  }
+  calc();
+
 });
 
 // ページ変更時
@@ -98,7 +124,7 @@ function sumEach() {
       firstFlg = false;
     }
 
-    /*     左右表示 */
+    /* 左右表示 */
     $(this).find(".sayu").text("");
     if (parseInt(start.text()) % 2 == 0) {
       $(this).find(".sayu").append('<img class="sayu" src="../../Com/img/rightBook.png" alt="右">');
@@ -119,4 +145,43 @@ function addRow(name, page) {
   if (page != "") {
     lastRow.find(".page").val(page);
   }
+}
+function clickSave(){
+  
+  //Cookieに保存
+  //行数
+  var rowNam = $("#tblSortable tbody").children().length;
+
+  //テーブルの中身を配列で取得
+  var data = [];
+  var tr = $("table tr");//全行を取得
+  for( var i=0,l=tr.length;i<l;i++ ){
+    var cells = tr.eq(i).children();//1行目から順にth、td問わず列を取得
+    for( var j=0,m=cells.length;j<m;j++ ){
+      if( typeof data[i] == "undefined" )
+        data[i] = [];
+      data[i][j] = cells.eq(j).find('input').val();//i行目j列のインプット文字列を取得
+    }
+  }
+  $.cookie('rowNam', rowNam);
+  $.cookie('contents', data);
+  
+//toridasiイメージ // 
+//alert(data[1][1].trim());//test
+//alert(data[1][2].trim());//test
+
+var titles = "";
+var pages = "";
+//必要な分だけ格納しよう
+for(var j=1; j <= rowNam ; j++ ){
+  titles = titles + data[j][1].trim();
+  titles = titles + ",";
+  pages = pages + data[j][2].trim();
+  pages = pages + ",";
+}
+
+  $.cookie('titles', titles);
+  $.cookie('pages', pages);
+  alert("しばらく保存しました。");
+
 }
