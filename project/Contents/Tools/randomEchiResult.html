@@ -31,7 +31,7 @@
   <body>
    
     <nav class="navbar navbar-expand navbar-dark bg-info">
-      <a class="navbar-brand" href="#">ランダムえちえちプロット結果</a>
+      <a class="navbar-brand" href="#">imoTools</a>
 
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="ナビゲーションの切替">
         <span class="navbar-toggler-icon"></span>
@@ -44,7 +44,7 @@
               >利用規約</a>
           </li> 
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle active" href="#" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">ウェブツール</a>
+            <a class="nav-link dropdown-toggle active" href="#" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">ツール</a>
             <div class="dropdown-menu" aria-labelledby="dropdown" style="z-index: 1030 !important;">
               <a class="dropdown-item " href="./nombreTool.html">ページ数からノンブル分かるやつ</a>
               <a class="dropdown-item active" href="./randomEchiTool.html">ランダムえちえちプロット</a>
@@ -63,37 +63,6 @@
     <article>
       <div class="container">
         <div class="row">
-          <div class="">
-            <div class="">
-              
-            <div id="plotResult" class="">
-              プロット生成結果
-              <br /><br />
-              <span id="span1"></span><br />
-              <span id="span2"></span><br />
-              <span id="span3"></span><br />
-              <span id="span4"></span><br />
-              <span id="span5"></span><br />
-              <span id="span6"></span><br />
-              <span id="span7"></span><br />
-              <br />
-            </div>
-              
-
-
-              <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.5/dist/html2canvas.min.js"></script>
-
-
-              <button id="getPrt" class="btn btn-info lsf-icon" title="add" onclick="clickGetPrt()">
-                プロット画像取得
-              </button>
-              <button id="share" class="btn btn-info lsf-icon" title="add" onclick="clickGetPrt()">
-                結果をシェアする
-              </button>
-              <br />
-
-
-
 
               <div class="form-group" style="display: none;">
                 <table id="tblPlotWhole" class="table table-condensed">
@@ -353,25 +322,54 @@
             ビフォアでアイコン<div class="lsf-icon" title="check">Twitter</div>
             --------------     -->
             </div>
-            <hr />
+
+            
+            <div id="plotResult" class="">
+              <h3 class="mb-2">ランダムえちえちプロット生成結果</h3>
+              <div id="plotText">
+                <span id="span1"></span><br />
+                <span id="span2"></span><br />
+                <span id="span3"></span><br />
+                <span id="span4"></span><br />
+                <span id="span5"></span><br />
+                <span id="span6"></span><br />
+                <span id="span7"></span><br />
+              </div>
+            </div>
+
+            <a id="getImage" href=""  style="display:none;"  download="image.png">画像保存</a>
+
+              <button id="downloadImageButton" class="btn btn-info lsf-icon" title="add" onclick="getDisplayImage()">
+                プロット画像取得
+              </button>
+              <!-- シェアボタン -->
+              <a onclick="clickBtnShare('プロットを作りました！','ランダムえちえちプロット')" href="#"  class="btn btn-info lsf-icon" title="twitter">結果をつぶやく</a>
+              <a onclick="clickBtnShareTagFirst('でプロットを作りました！','ランダムえちえちプロット')" href="#"  class="btn btn-info lsf-icon" title="twitter">結果をつぶやく</a>
+              
+              <br />
+              <hr />
             <div class="txtArea">
               <h2 class="">使い方</h2>
               <p>
                 個々のページ数を入力すると、自動で開始ページと終了ページのノンブル（全体の通し番号）を計算します。<br /><br />
-                追加ボタンで行が増やせます。<br />
-                左の「<span class="lsf-icon move" title="move"></span
-                >」をドラッグすることで、順番の並び替えが可能です。<br />
-                左右どちらのページから開始するかも表示していますが、これは右とじ（縦書き、漫画や国語の教科書と同じ開き方）にしか対応していません。
               </p>
-              <p>
-                以下は、実際の漫画アンソロ/合同誌を想定したサンプルです。<br />
-                漫画なので、すべて左はじまりになるよう調整しています。
-              </p>
+              
+            <br />
+            <h4 class="">利用規約</h4>
+            常識の範囲内の使用は完全フリーですが、シェア＆使ったよ報告していただけると嬉しいです。<br />
+            詳しい利用規約は<a href="./imoToolUsage.html">こちら</a
+            >。<br />
+            <br />
+            <a
+              href="https://giftee.co/u/kabekabe"
+              class="btn btn-outline-info mt-1"
+              target="_blank"
+              >開発者にコーヒーをおごる</a
+            >
+            <span class="text-muted small">（gifteeへのリンクです）</span>
+          
             </div>
-            <img src="./gamen.png" width="300px" />
           </div>
-        </div>
-      </div>
     </article>
 
     <hr />
@@ -381,20 +379,14 @@
       <div class="container">
         <div class="">
           <div class="text-center">
-            <!--     <ul class="list-inline text-center shareList"> -->
 
-            <!--             
-              <li class="list-inline-item"><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fimokabe.github.io%2Firoiro%2F&quote=" title="Share on Facebook" target="_blank" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(document.URL) + '&quote=' + encodeURIComponent(document.URL)); return false;"><img alt="Share on Facebook" src="images/flat_web_icon_set/color/Facebook.png" /></a></li>
-              <li class="list-inline-item"><a href="https://twitter.com/intent/tweet?source=https%3A%2F%2Fimokabe.github.io%2Firoiro%2F&text=:%20https%3A%2F%2Fimokabe.github.io%2Firoiro%2F" target="_blank" title="Tweet" onclick="window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(document.title) + ':%20'  + encodeURIComponent(document.URL)); return false;"><img alt="Tweet" src="images/flat_web_icon_set/color/Twitter.png" /></a></li>
-              <li class="shareList__item"><a class="shareList__link lsf-icon icon-twitter" href="#" target="_blank" title="Twitter"></a></li>
-   -->
             <ul class="shareList">
               <li class="shareList__item">
                 <a
                   class="shareList__link lsf-icon icon-twitter"
-                  href="javascript:window.open('http://twitter.com/share?text='+encodeURIComponent(document.title)+'&url='+encodeURIComponent(location.href),'sharewindow','width=550, height=450, personalbar=0, toolbar=0, scrollbars=1, resizable=!');"
-                  target="_blank"
+                  onclick="clickBtnShare()"
                   title="twitter"
+                  href="#"
                 ></a>
               </li>
               <li class="shareList__item">
@@ -456,16 +448,7 @@
     </footer>
 
     <!-- Optional JavaScript -->
-    <!-- いらないなら、jQueryフォルダも消していい -->
     <script src="../../Com/jQuery/jquery-3.5.0.min.js"></script>
-
-    <!-- 
-    <script
-    src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-    crossorigin="anonymous"
-  ></script> -->
-
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
@@ -477,10 +460,10 @@
       integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
       crossorigin="anonymous"
     ></script>
-    <!-- スマホ対応 -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
-
+     <!-- html2canvas -->
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.5/dist/html2canvas.min.js"></script>
+     <!-- my js -->
+    <script type="text/javascript" src="../../Com/com.js"></script>
     <script type="text/javascript" src="../../Com/randomPlot.js"></script>
-    
   </body>
 </html>

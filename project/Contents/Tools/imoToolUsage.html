@@ -43,7 +43,7 @@
               >利用規約</a>
           </li> 
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">ウェブツール</a>
+            <a class="nav-link dropdown-toggle" href="#" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">ツール</a>
             <div class="dropdown-menu" aria-labelledby="dropdown">
               <a class="dropdown-item" href="./nombreTool.html">ページ数からノンブル分かるやつ</a>
               <a class="dropdown-item" href="./randomEchiTool.html">ランダムえちえちプロット</a>
@@ -90,7 +90,7 @@
                 target="_blank"
                 >開発者にコーヒーをおごる</a
               >
-              （gifteeへのリンクです）
+              <span class="text-muted small">（gifteeへのリンクです）</span>
             </p>
             <p>
               ツールそのものをどうにかしたい場合や、有償での作成依頼などは開発者までどうぞ。<br />
@@ -108,20 +108,14 @@
       <div class="container">
         <div class="">
           <div class="text-center">
-            <!--     <ul class="list-inline text-center shareList"> -->
 
-            <!--             
-              <li class="list-inline-item"><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fimokabe.github.io%2Firoiro%2F&quote=" title="Share on Facebook" target="_blank" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(document.URL) + '&quote=' + encodeURIComponent(document.URL)); return false;"><img alt="Share on Facebook" src="images/flat_web_icon_set/color/Facebook.png" /></a></li>
-              <li class="list-inline-item"><a href="https://twitter.com/intent/tweet?source=https%3A%2F%2Fimokabe.github.io%2Firoiro%2F&text=:%20https%3A%2F%2Fimokabe.github.io%2Firoiro%2F" target="_blank" title="Tweet" onclick="window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(document.title) + ':%20'  + encodeURIComponent(document.URL)); return false;"><img alt="Tweet" src="images/flat_web_icon_set/color/Twitter.png" /></a></li>
-              <li class="shareList__item"><a class="shareList__link lsf-icon icon-twitter" href="#" target="_blank" title="Twitter"></a></li>
-   -->
             <ul class="shareList">
               <li class="shareList__item">
                 <a
                   class="shareList__link lsf-icon icon-twitter"
-                  href="javascript:window.open('http://twitter.com/share?text='+encodeURIComponent(document.title)+'&url='+encodeURIComponent(location.href),'sharewindow','width=550, height=450, personalbar=0, toolbar=0, scrollbars=1, resizable=!');"
-                  target="_blank"
+                  onclick="clickBtnShare()"
                   title="twitter"
+                  href="#"
                 ></a>
               </li>
               <li class="shareList__item">
@@ -183,16 +177,7 @@
     </footer>
 
     <!-- Optional JavaScript -->
-    <!-- いらないなら、jQueryフォルダも消していい -->
     <script src="../../Com/jQuery/jquery-3.5.0.min.js"></script>
-
-    <!-- 
-    <script
-    src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-    crossorigin="anonymous"
-  ></script> -->
-
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
@@ -204,10 +189,8 @@
       integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
       crossorigin="anonymous"
     ></script>
-    <!-- スマホ対応 -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
-    <!-- Cookie -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+    <!-- my js -->
+    <script type="text/javascript" src="../../Com/com.js"></script>
     <script type="text/javascript" src="../../Com/nombre.js"></script>
   </body>
 </html>
