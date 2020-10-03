@@ -119,8 +119,9 @@ function haneiTxt() {
   }
 }
 
+//画像取得DLメソッド
 function downloadImage(data) {
-  var fname = "plotImage"+ getNow() +".png";
+  var fname = "echiPlot"+ getNow() +".png";
   var encdata = atob(data.replace(/^.*,/, ""));
   var outdata = new Uint8Array(encdata.length);
   for (var i = 0; i < encdata.length; i++) {
@@ -147,59 +148,45 @@ function getDisplayImage() {
   });
 }
 
-//時分秒取得
-function getNow(){
-
-  var dd = new Date();
-  var YYYY = dd.getFullYear();
-  var MM = dd.getMonth()+1;
-  var DD = dd.getDate();
-  var minutes = dd.getMinutes();
-  var sec = dd.getSeconds();
-  var milliSec = dd.getMilliseconds();
-  return(""+ YYYY +""+ MM + ""+DD+""+minutes+""+sec+""+milliSec);
-
-}
-
 //以下ボツ　今回は向いてなかった----------------------
-// クリップボードにコピーさせる
-function execCopy(string) {
-  // 空div 生成
-  var tmp = document.createElement("div");
-  // 選択用のタグ生成
-  var pre = document.createElement("pre");
+//// テキストをクリップボードにコピーさせる
+//function execCopy(string) {
+//  // 空div 生成
+//  var tmp = document.createElement("div");
+//  // 選択用のタグ生成
+//  var pre = document.createElement("pre");
 
-  // 親要素のCSSで user-select: none だとコピーできないので書き換える
-  pre.style.webkitUserSelect = "auto";
-  pre.style.userSelect = "auto";
+//  // 親要素のCSSで user-select: none だとコピーできないので書き換える
+//  pre.style.webkitUserSelect = "auto";
+//  pre.style.userSelect = "auto";
 
-  tmp.appendChild(pre).textContent = string;
+//  tmp.appendChild(pre).textContent = string;
 
-  // 要素を画面外へ
-  var s = tmp.style;
-  s.position = "fixed";
-  s.right = "200%";
+//  // 要素を画面外へ
+//  var s = tmp.style;
+//  s.position = "fixed";
+//  s.right = "200%";
 
-  // body に追加
-  document.body.appendChild(tmp);
-  // 要素を選択
-  document.getSelection().selectAllChildren(tmp);
+//  // body に追加
+//  document.body.appendChild(tmp);
+//  // 要素を選択
+//  document.getSelection().selectAllChildren(tmp);
 
-  // クリップボードにコピー
-  var result = document.execCommand("copy");
+//  // クリップボードにコピー
+//  var result = document.execCommand("copy");
 
-  // 要素削除
-  document.body.removeChild(tmp);
+//  // 要素削除
+//  document.body.removeChild(tmp);
 
-  return result;
-}
-var copyText = $("#plotText").val();
+//  return result;
+//}
+//var copyText = $("#plotText").val();
 
-// コピーボタンクリック時
-function clickCopy() {
-  if (execCopy(copyText)) {
-    alert("クリップボードにコピーしました" + copyText + "456");
-  } else {
-    alert("このブラウザでは対応していません");
-  }
-}
+//// コピーボタンクリック時
+//function clickCopy() {
+//  if (execCopy(copyText)) {
+//    alert("クリップボードにコピーしました" + copyText + "456");
+//  } else {
+//    alert("このブラウザでは対応していません");
+//  }
+//}

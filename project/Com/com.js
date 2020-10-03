@@ -34,3 +34,17 @@ $(function () {
      window.open(strUrl, '_blank');
 
   }
+
+//時分秒取得
+function getNow() {
+
+    var dd = new Date();
+    var YYYY = dd.getFullYear();
+    var MM = dd.getMonth() + 1;
+    var DD = dd.getDate();
+    var minutes = dd.getMinutes();
+    var sec = dd.getSeconds();
+    var milliSec = dd.getMilliseconds();
+    return ("" + YYYY + "" + MM + "" + DD + "" + minutes + "" + sec + "" + milliSec);
+
+}
