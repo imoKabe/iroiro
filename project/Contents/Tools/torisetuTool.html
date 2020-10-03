@@ -18,7 +18,45 @@
     <link rel="stylesheet" href="../../Com/shareStyle.css" />
     <!-- my CSS -->
     <link href="../../Com/css01.css" rel="stylesheet" />
-    <title>匿名箱のトリセツ</title>
+    <style>
+
+        h5 {
+            padding: .5em .75em;
+            background-color: #f6f6f6;
+            border-left: 6px solid #ccc;
+        }
+        /*  リンクっぽくみせる*/
+        .opt {
+            color: #007bff;
+        }
+
+            .opt:hover {
+                cursor: pointer;
+                text-decoration: underline;
+            }
+        /*ずれ防止*/
+        input[type="radio"], input[type="checkbox"] {
+            vertical-align: middle;
+        }
+
+        #chartArea {
+            position: relative;
+            height: 40vh;
+            width: 40vw;
+            margin: auto;
+    }
+        /*  small&x-small*/
+        @media (max-width: 767.98px) {
+            #chartArea {
+                position: relative;
+                height: 50vh;
+                width: 50vw;
+                margin: auto;
+            }
+        }
+
+    </style>
+    <title>匿名箱のトリセツジェネレーター</title>
 </head>
 <body>
 
@@ -38,7 +76,7 @@
                     <a class="nav-link dropdown-toggle active" href="#" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">ツール</a>
                     <div class="dropdown-menu" aria-labelledby="dropdown" style="z-index: 1030 !important;">
                         <a class="dropdown-item " href="./nombreTool.html">ページ数からノンブル分かるやつ</a>
-                        <a class="dropdown-item " href="./torisetuTool.html">匿名箱のトリセツ</a>
+                        <a class="dropdown-item " href="./torisetuTool.html">匿名箱のトリセツジェネレーター</a>
                         <a class="dropdown-item active" href="./randomEchiTool.html">ランダムえちえちプロット</a>
                         <a class="dropdown-item" href="./randomHorrorTool.html">ランダムホラープロット（準備中）</a>
                     </div>
@@ -53,64 +91,220 @@
     <!-- Post Content -->
     <article>
         <div class="container">
-            <div class="row">
+            <div id="picArea" class="row">
 
-                <div class="col-md-6" style="">
+                <div class="col-lg-8" style="">
                     <form id="mainForm" class="form-horizonal">
 
+                        <h4 class="mb-3 mt-3">匿名箱のトリセツジェネレーター</h4>
+                        <h5>お便り</h5>
                         <div class="form-group row">
-                            <label for="" class="col-md-4 col-xl-3 col-form-label">感想ほしい度</label>
+                            <label for="" class="col-md-4 col-xl-3 col-form-label font-weight-bold">■感想歓迎度</label>
                             <div class="col-md-8 col-xl-9">
-                                <div class="d-flex justify-content-between">
-                                    <span>低い</span><span>高い</span>
+                                <div class="d-flex justify-content-between small">
+                                    <span>不要</span><span>歓迎</span>
                                 </div>
-                                <input type="range" class="customRange" id="range1" min="0" max="10" value="5" />
+                                <div id="slider1"></div>
                             </div>
                         </div>
 
-                        <a data-toggle="collapse" href="#opt1">オプション表示切替</a><br />
-                        <div id="opt1" class="collapse">
-                            ああ
+                        <span id="switchOpt1" class="opt small lsf-icon" title="add">
+                            感想オプション
+                        </span>
+                        <div id="opt1" class="" style="display: none;margin-top:0.5em;margin-bottom:0.5em;">
+
+                            <div class="form-group row">
+                                <label for="" class="col-md-4 col-xl-3 col-form-label" style="font-size:80%;">
+                                    〇長文・細かい・具体的な感想
+                                </label>
+                                <div class="col-md-8 col-xl-9">
+                                    <div class="d-flex justify-content-between small">
+                                        <span>不要</span><span>歓迎</span>
+                                    </div>
+                                    <div id="sliderOpt1"></div>
+                                </div>
+                            </div>
+                            <!--<div class="form-group row">
+                                <label for="" class="col-md-4 col-xl-3 col-form-label" style="font-size:80%;">
+                                    総量が同じ場合、嬉しい頻度
+                                </label>
+                                <div class="col-md-8 col-xl-9">
+                                    <div class="d-flex justify-content-between small">
+                                        <span>まとめて</span><span>ちょこちょこ</span>
+                                    </div>
+                                    <div id="sliderOpt2"></div>
+                                </div>
+                            </div>-->
+
                         </div>
 
+                        <hr />
+
                         <div class="form-group row">
-                            <label for="" class="col-md-4 col-xl-3 col-form-label">お題・リクエストほしい度</label>
+                            <label for="" class="col-md-4 col-xl-3 col-form-label font-weight-bold">■お題・リクエスト歓迎度</label>
                             <div class="col-md-8 col-xl-9">
-                                <div class="d-flex justify-content-between">
-                                    <span>低い</span><span>高い</span>
+                                <div class="d-flex justify-content-between small">
+                                    <span>不要</span><span>歓迎</span>
                                 </div>
-                                <input type="range" class="customRange" id="range2" min="0" max="10" value="5" />
+                                <div id="slider2"></div>
+
+                                <div class="ml-2 mt-2">
+                                    <input id="chk1" type="checkbox" checked />
+                                    <label for="chk1" class="small">お題だけでなく、できれば感想もください</label>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="form-group row">
-                            <label for="" class="col-md-4 col-xl-3 col-form-label">質問ほしい度</label>
-                            <div class="col-md-8 col-xl-9">
-                                <div class="d-flex justify-content-between">
-                                    <span>低い</span><span>高い</span>
+                        <span id="switchOpt2" class="opt small lsf-icon" title="add">
+                            お題オプション
+                        </span>
+                        <div id="opt2" class="" style="display: none;margin-top:0.5em;margin-bottom:0.5em;">
+
+                            <div class="form-group row">
+                                <label for="" class="col-md-4 col-xl-3 col-form-label" style="font-size:80%;">
+                                    〇お題採用率
+                                </label>
+                                <div class="col-md-8 col-xl-9">
+                                    <div class="d-flex justify-content-between small">
+                                        <span>低い</span><span>高い</span>
+                                    </div>
+                                    <div id="sliderOpt3"></div>
+
+                                    <input id="chk2" type="checkbox" checked />
+                                    <label for="chk2" class="small">場合によってかなり変動します</label>
                                 </div>
-                                <input type="range" class="customRange" id="range3" min="0" max="10" value="5" />
+                            </div>
+
+                        </div>
+
+                        <hr />
+
+                        <div class="form-group row">
+                            <label for="" class="col-md-4 col-xl-3 col-form-label font-weight-bold">■質問歓迎度</label>
+                            <div class="col-md-8 col-xl-9">
+                                <div class="d-flex justify-content-between small">
+                                    <span>不要</span><span>歓迎</span>
+                                </div>
+                                <div id="slider3"></div>
                             </div>
                         </div>
 
-                        <div class="form-group row">
-                            <label for="" class="col-md-4 col-xl-3 col-form-label">お返事得意度</label>
-                            <div class="col-md-8 col-xl-9">
-                                <div class="d-flex justify-content-between">
-                                    <span>低い</span><span>高い</span>
+                        <span id="switchOpt3" class="opt small lsf-icon" title="add">
+                            その他お便り系オプション
+                        </span>
+                        <div id="opt3" class="" style="display: none;margin-top:0.5em;margin-bottom:0.5em;">
+
+
+                            <h5>その他</h5>
+
+
+                            <div class="form-group row">
+                                <label for="" class="col-md-4 col-xl-3 col-form-label" style="font-size:80%;">
+                                    ■誤字脱字報告、ご指摘など
+                                </label>
+                                <div class="col-md-8 col-xl-9">
+                                    <div class="d-flex justify-content-between small">
+                                        <span>不要</span><span>歓迎</span>
+                                    </div>
+                                    <div id="sliderOpt4"></div>
+
+                                    <input id="chk3" type="checkbox" checked />
+                                    <label for="chk3" class="small">指摘だけでなく、できれば感想もください</label>
                                 </div>
-                                <input type="range" class="customRange" id="range4" min="0" max="10" value="5" />
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="" class="col-md-4 col-xl-3 col-form-label" style="font-size:80%;">
+                                    ■雑談や、上記以外の話題
+                                </label>
+                                <div class="col-md-8 col-xl-9">
+                                    <div class="d-flex justify-content-between small">
+                                        <span>不要</span><span>歓迎</span>
+                                    </div>
+                                    <div id="sliderOpt5"></div>
+
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="" class="col-md-4 col-xl-3 col-form-label" style="font-size:80%;">
+                                    ■自作を元にした二次（三次）創作
+                                </label>
+                                <div class="col-md-8 col-xl-9">
+                                    <div class="d-flex justify-content-between small">
+                                        <span>不要</span><span>歓迎</span>
+                                    </div>
+                                    <div id="sliderOpt6"></div>
+
+                                    <input id="chk4" type="checkbox" checked />
+                                    <label for="chk4" class="small">公開前にご一報ください</label>
+                                </div>
                             </div>
                         </div>
+
+                        <h5>お返事</h5>
+                        <div class="form-group row">
+                            <label for="" class="col-md-4 col-xl-3 col-form-label font-weight-bold">■お返事得意度</label>
+                            <div class="col-md-8 col-xl-9">
+                                <div class="d-flex justify-content-between small">
+                                    <span>苦手</span><span>得意・好き</span>
+                                </div>
+                                <div id="slider4"></div>
+                            </div>
+                        </div>
+
+
+                        <span id="switchOpt4" class="opt small lsf-icon" title="add">
+                            お返事オプション
+                        </span>
+                        <div id="opt4" class="" style="display: none;margin-top:0.5em;margin-bottom:0.5em;">
+
+                            <div class="form-group row">
+                                <label for="" class="col-md-4 col-xl-3 col-form-label" style="font-size:80%;">
+                                    〇返信速度
+                                </label>
+                                <div class="col-md-8 col-xl-9">
+                                    <div class="d-flex justify-content-between small">
+                                        <span>１か月以上</span><span>３日以内</span>
+                                    </div>
+                                    <div id="sliderOpt7"></div>
+
+                                    <input id="chk5" type="checkbox" checked />
+                                    <label for="chk5" class="small">場合によってかなり変動します</label>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="" class="col-md-4 col-xl-3 col-form-label" style="font-size:80%;">
+                                    〇返信率
+                                </label>
+                                <div class="col-md-8 col-xl-9">
+                                    <div class="d-flex justify-content-between small">
+                                        <span>低い</span><span>高い</span>
+                                    </div>
+                                    <div id="sliderOpt8"></div>
+
+                                    <input id="chk6" type="checkbox" checked />
+                                    <label for="chk6" class="small">場合によってかなり変動します</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr />
+
 
                     </form>
                 </div>
 
-                <div id="" class="col-md-6">
-                    <canvas id="myChart" width="300"></canvas>
+                <div id="chartArea" class="col-lg-4 d-flex ">
+                    <canvas id="myChart"></canvas>
                 </div>
 
             </div>
+
+
+            <br />
+
+            <br />
 
             <a id="getImage" href="" style="display:none;" download="image.png">画像保存</a>
 
@@ -121,6 +315,8 @@
             <a onclick="clickBtnShareTagFirst('を作りました！','匿名箱のトリセツ')" href="#" class="btn btn-info lsf-icon" title="twitter">結果をつぶやく</a>
 
             <br />
+
+
 
 
             <div class="txtArea">
@@ -228,12 +424,12 @@
 
         $(function () {
             // 初期表示時
-
+            //チャートの設定
             var ctx = document.getElementById("myChart");
-            var myChart =  new Chart(ctx, {
+            var myChart = new Chart(ctx, {
                 type: 'polarArea',
                 data: {
-                 
+
                     labels: ["感想", "リクエスト", "質問", "お返事"],
                     datasets: [{
                         backgroundColor: [
@@ -242,13 +438,13 @@
                             "#40E0D0", //トルコ石
                             "#00BFFF", //ディープスカイブルー
                         ],
-                        data: [5,5,5,5]
+                        data: [5, 5, 5, 5]
                     }]
                 },
                 options: {
                     title: {
-                        display: false,
-                        text: 'トリセツ'
+                        display: true,
+                        text: '匿名箱のトリセツ（積極度）'
                     },
                     scale: {
                         ticks: {
@@ -259,15 +455,130 @@
                     },
                     legend: {
                         position: "bottom"
-                    }
+                    },
+                    responsive: true,
+                    maintainAspectRatio: false
                 }
             });
-            $("#mainForm").on('change', function () {
+
+
+            //スライダー設置
+            setChangeSlidar($("#slider1"));
+            setChangeSlidar($("#slider2"));
+            setChangeSlidar($("#slider3"));
+            setChangeSlidar($("#slider4"));
+            setSlidar($("#sliderOpt1"));
+            //setSlidar($("#sliderOpt2"));//ボツ、欠番
+            setSlidar($("#sliderOpt3"));
+            setSlidar($("#sliderOpt4"));
+            setSlidar($("#sliderOpt5"));
+            setSlidar($("#sliderOpt6"));
+            setSlidar($("#sliderOpt7"));
+            setSlidar($("#sliderOpt8"));
+
+            // スライダー設置（グラフと連動するやつ）
+            function setChangeSlidar(target) {
+                target.slider({
+                    min: 0,
+                    max: 10,
+                    step: 1,
+                    value: 5,
+                    animate: true,
+                    //変更時イベント
+                    change: function (event, ui) {
+                        updateGraph();
+                    }
+                });
+            }
+            // スライダー設置
+            function setSlidar(target) {
+                target.slider({
+                    min: 0,
+                    max: 10,
+                    step: 1,
+                    value: 5,
+                    animate: true,
+
+                });
+            }
+
+            // 値をグラフに反映
+            function updateGraph() {
                 myChart.data.datasets[0].data =
-                    [$("#range1").val(), $("#range2").val(), $("#range3").val(), $("#range4").val()];
+                    [$("#slider1").slider('option', 'value'),
+                    $("#slider2").slider('option', 'value'),
+                    $("#slider3").slider('option', 'value'),
+                    $("#slider4").slider('option', 'value')];
                 myChart.update();
+            }
+
+            //オプション出し入れ
+            $("#switchOpt1").on("click", function () {
+                switchOpt("#opt1", this);
             });
+            //オプション出し入れ
+            $("#switchOpt2").on("click", function () {
+                switchOpt("#opt2", this);
+            });
+            //オプション出し入れ
+            $("#switchOpt3").on("click", function () {
+                switchOpt("#opt3", this);
+            });
+            //オプション出し入れ
+            $("#switchOpt4").on("click", function () {
+                switchOpt("#opt4", this);
+            });
+
         });
+
+
+        //オプション出し入れ
+        function switchOpt(opt, switchTxt) {
+            if ($(opt).css("display") == "none") {
+                $(opt).css("display", "block");
+                $(switchTxt).attr("title", "minus");
+            } else {
+                $(opt).css("display", "none");
+                $(switchTxt).attr("title", "add");
+            }
+        }
+
+
+        //画像取得DLメソッド
+        function downloadImage(data) {
+            var fname = "torisetu" + getNow() + ".png";
+            var encdata = atob(data.replace(/^.*,/, ""));
+            var outdata = new Uint8Array(encdata.length);
+            for (var i = 0; i < encdata.length; i++) {
+                outdata[i] = encdata.charCodeAt(i);
+            }
+            var blob = new Blob([outdata], ["image/png"]);
+
+            if (window.navigator.msSaveBlob) {
+                //IE用
+                window.navigator.msSaveOrOpenBlob(blob, fname);
+            } else {
+                //それ以外？
+                document.getElementById("getImage").href = data; //base64そのまま設定
+                document.getElementById("getImage").download = fname; //ダウンロードファイル名設定
+                document.getElementById("getImage").click(); //自動クリック
+            }
+        }
+        //画像保存ボタン押下時
+        function getDisplayImage() {
+            //html2canvas実行
+            alert("トリセツ画像をダウンロードします。\nしばらくしたらダウンロードフォルダを確認してください");
+            $(".opt ").css("display", "none");//オプションリンク非表示
+            $(window).scrollTop(0);   // スクロール
+            $(window).scrollLeft(0);  // スクロール
+            html2canvas(document.getElementById("picArea"), {
+            }).then(function (canvas) {
+                downloadImage(canvas.toDataURL());
+            });
+            $(".opt ").css("display", "inline-block");//オプションリンク表示
+        }
+
+
 
 
     </script>
