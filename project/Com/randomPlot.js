@@ -33,12 +33,10 @@ $(function () {
   // セレクトの内容をテキストに反映
   haneiTxt();
 
-//画像取得
-  html2canvas(document.querySelector("#plotResult")).then(canvas => {
-    document.body.appendChild(canvas);
-   // $("#plotResult").appendChild(canvas);
-  });
-
+  //画像取得して画面に表示
+  // html2canvas(document.querySelector("plotResult")).then(canvas => {
+  //   document.body.appendChild(canvas);
+  // });
 
 });
 
@@ -67,47 +65,141 @@ function randomEach(target) {
   target.val(random);
 }
 
-  // セレクトの内容をテキストに反映
+// セレクトの内容をテキストに反映
 function haneiTxt() {
-  
-  //test
-  var data = [];
-  var tr = $("table tr");//全行を取得
-  for( var i=0,l=tr.length;i<l;i++ ){
-    var cells = tr.eq(i).children();//1行目から順にth、td問わず列を取得
-    for( var j=0,m=cells.length;j<m;j++ ){
-      if( typeof data[i] == "undefined" )
-        data[i] = [];
-      data[i][j] = cells.eq(j).text();//i行目j列の文字列を取得
-    }
-  }
 
-  if($('#span1').length){
-    var txt1 = data[1][0].trim() + $("#select1 option:selected").text().trim() + data[1][2].trim();
-    $('#span1').html(txt1.replace(" ",""));
+  if ($("#span1").length) {
+    var txt1 =
+      "二人は"+
+      $("#select1 option:selected").text().trim() +
+      "という障害を乗り越え、";
+    $("#span1").html(txt1.replace(" ", ""));
   }
-  if($('#span2').length){
-    var txt2 = data[2][0].trim() + $("#select2 option:selected").text().trim() + data[2][2].trim();
-    $('#span2').html(txt2.replace(" ",""));
+  if ($("#span2").length) {
+    var txt2 =
+    "全体を通して"+
+      $("#select2 option:selected").text().trim() +
+      "。";
+    $("#span2").html(txt2.replace(" ", ""));
   }
-  if($('#span3').length){
-    var txt3 = data[4][0].trim() + $("#select3 option:selected").text().trim() + data[4][2].trim();
-    $('#span3').html(txt3.replace(" ",""));
+  if ($("#span3").length) {
+    var txt3 =
+      "行為のきっかけは"+
+      $("#select3 option:selected").text().trim() +
+      "で、";
+    $("#span3").html(txt3.replace(" ", ""));
   }
-  if($('#span4').length){
-    var txt4 = data[5][0].trim() + $("#select4 option:selected").text().trim() + data[5][2].trim();
-    $('#span4').html(txt4.replace(" ",""));
+  if ($("#span4").length) {
+    var txt4 =
+      "場所は" +
+      $("#select4 option:selected").text().trim() +
+      "だ。";
+    $("#span4").html(txt4.replace(" ", ""));
   }
-  if($('#span5').length){
-    var txt5 = data[6][0].trim() + $("#select5 option:selected").text().trim() + data[6][2].trim();
-    $('#span5').html(txt5.replace(" ",""));
+  if ($("#span5").length) {
+    var txt5 =
+    "オプションは"+
+      $("#select5 option:selected").text().trim() +
+      "で、";
+    $("#span5").html(txt5.replace(" ", ""));
   }
-  if($('#span6').length){
-    var txt6 = data[7][0].trim() + $("#select6 option:selected").text().trim() + data[7][2].trim();
-    $('#span6').html(txt6.replace(" ",""));
+  if ($("#span6").length) {
+    var txt6 =
+    "最中は"+
+      $("#select6 option:selected").text().trim() +
+      "交わり、";
+    $("#span6").html(txt6.replace(" ", ""));
   }
-  if($('#span7').length){
-    var txt7 = data[8][0].trim() + $("#select7 option:selected").text().trim() + data[8][2].trim();
-    $('#span7').html(txt7.replace(" ","").replace(" ",""));
+  if ($("#span7").length) {
+    var txt7 =
+    "結果は"+
+      $("#select7 option:selected").text().trim() +
+      "。";
+    $("#span7").html(txt7.replace(" ", "").replace(" ", ""));
+  }
+}
+
+function downloadImage(data) {
+  var fname = "plotImage"+ getNow() +".png";
+  var encdata = atob(data.replace(/^.*,/, ""));
+  var outdata = new Uint8Array(encdata.length);
+  for (var i = 0; i < encdata.length; i++) {
+    outdata[i] = encdata.charCodeAt(i);
+  }
+  var blob = new Blob([outdata], ["image/png"]);
+
+  if (window.navigator.msSaveBlob) {
+    //IE用
+    window.navigator.msSaveOrOpenBlob(blob, fname);
+  } else {
+    //それ以外？
+    document.getElementById("getImage").href = data; //base64そのまま設定
+    document.getElementById("getImage").download = fname; //ダウンロードファイル名設定
+    document.getElementById("getImage").click(); //自動クリック
+  }
+}
+//画像保存ボタン押下時
+function getDisplayImage() {
+  //html2canvas実行
+  alert("プロット画像をダウンロードします。\nしばらくしたらダウンロードフォルダを確認してください");
+  html2canvas(document.getElementById("plotResult")).then(function (canvas) {
+    downloadImage(canvas.toDataURL());
+  });
+}
+
+//時分秒取得
+function getNow(){
+
+  var dd = new Date();
+  var YYYY = dd.getFullYear();
+  var MM = dd.getMonth()+1;
+  var DD = dd.getDate();
+  var minutes = dd.getMinutes();
+  var sec = dd.getSeconds();
+  var milliSec = dd.getMilliseconds();
+  return(""+ YYYY +""+ MM + ""+DD+""+minutes+""+sec+""+milliSec);
+
+}
+
+//以下ボツ　今回は向いてなかった----------------------
+// クリップボードにコピーさせる
+function execCopy(string) {
+  // 空div 生成
+  var tmp = document.createElement("div");
+  // 選択用のタグ生成
+  var pre = document.createElement("pre");
+
+  // 親要素のCSSで user-select: none だとコピーできないので書き換える
+  pre.style.webkitUserSelect = "auto";
+  pre.style.userSelect = "auto";
+
+  tmp.appendChild(pre).textContent = string;
+
+  // 要素を画面外へ
+  var s = tmp.style;
+  s.position = "fixed";
+  s.right = "200%";
+
+  // body に追加
+  document.body.appendChild(tmp);
+  // 要素を選択
+  document.getSelection().selectAllChildren(tmp);
+
+  // クリップボードにコピー
+  var result = document.execCommand("copy");
+
+  // 要素削除
+  document.body.removeChild(tmp);
+
+  return result;
+}
+var copyText = $("#plotText").val();
+
+// コピーボタンクリック時
+function clickCopy() {
+  if (execCopy(copyText)) {
+    alert("クリップボードにコピーしました" + copyText + "456");
+  } else {
+    alert("このブラウザでは対応していません");
   }
 }
