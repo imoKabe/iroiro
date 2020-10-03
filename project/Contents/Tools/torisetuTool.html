@@ -1,0 +1,275 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <!-- import CSS -->
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous" />
+    <link rel="stylesheet"
+          href="http://code.jquery.com/ui/1.12.1/themes/hot-sneaks/jquery-ui.css" />
+    <link rel="stylesheet"
+          href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css" />
+    <link href="../../Com/LigatureSymbols/style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../../Com/shareStyle.css" />
+    <!-- my CSS -->
+    <link href="../../Com/css01.css" rel="stylesheet" />
+    <title>匿名箱のトリセツ</title>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand navbar-dark bg-info">
+        <a class="navbar-brand" href="#">imoTools</a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="ナビゲーションの切替">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class=".collapse.show" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item ">
+                    <a class="nav-link" href="./imoToolUsage.html">利用規約</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle active" href="#" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">ツール</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown" style="z-index: 1030 !important;">
+                        <a class="dropdown-item " href="./nombreTool.html">ページ数からノンブル分かるやつ</a>
+                        <a class="dropdown-item " href="./torisetuTool.html">匿名箱のトリセツ</a>
+                        <a class="dropdown-item active" href="./randomEchiTool.html">ランダムえちえちプロット</a>
+                        <a class="dropdown-item" href="./randomHorrorTool.html">ランダムホラープロット（準備中）</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://note.com/kashiri">note（紹介記事など）</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Post Content -->
+    <article>
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-6" style="">
+                    <form id="mainForm" class="form-horizonal">
+
+                        <div class="form-group row">
+                            <label for="" class="col-md-4 col-xl-3 col-form-label">感想ほしい度</label>
+                            <div class="col-md-8 col-xl-9">
+                                <div class="d-flex justify-content-between">
+                                    <span>低い</span><span>高い</span>
+                                </div>
+                                <input type="range" class="customRange" id="range1" min="0" max="10" value="5" />
+                            </div>
+                        </div>
+
+                        <a data-toggle="collapse" href="#opt1">オプション表示切替</a><br />
+                        <div id="opt1" class="collapse">
+                            ああ
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="" class="col-md-4 col-xl-3 col-form-label">お題・リクエストほしい度</label>
+                            <div class="col-md-8 col-xl-9">
+                                <div class="d-flex justify-content-between">
+                                    <span>低い</span><span>高い</span>
+                                </div>
+                                <input type="range" class="customRange" id="range2" min="0" max="10" value="5" />
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="" class="col-md-4 col-xl-3 col-form-label">質問ほしい度</label>
+                            <div class="col-md-8 col-xl-9">
+                                <div class="d-flex justify-content-between">
+                                    <span>低い</span><span>高い</span>
+                                </div>
+                                <input type="range" class="customRange" id="range3" min="0" max="10" value="5" />
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="" class="col-md-4 col-xl-3 col-form-label">お返事得意度</label>
+                            <div class="col-md-8 col-xl-9">
+                                <div class="d-flex justify-content-between">
+                                    <span>低い</span><span>高い</span>
+                                </div>
+                                <input type="range" class="customRange" id="range4" min="0" max="10" value="5" />
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+
+                <div id="" class="col-md-6">
+                    <canvas id="myChart" width="300"></canvas>
+                </div>
+
+            </div>
+
+            <a id="getImage" href="" style="display:none;" download="image.png">画像保存</a>
+
+            <button id="downloadImageButton" class="btn btn-info lsf-icon" title="add" onclick="getDisplayImage()">
+                トリセツ画像取得
+            </button>
+            <!-- シェアボタン -->
+            <a onclick="clickBtnShareTagFirst('を作りました！','匿名箱のトリセツ')" href="#" class="btn btn-info lsf-icon" title="twitter">結果をつぶやく</a>
+
+            <br />
+
+
+            <div class="txtArea">
+                <h2 class="">使い方</h2>
+                <p>
+                    スライダーで<br /><br />
+                </p>
+                <br />
+                <h4 class="">利用規約</h4>
+                常識の範囲内の使用は完全フリーですが、シェア＆使ったよ報告していただけると嬉しいです。<br />
+                詳しい利用規約は<a href="./imoToolUsage.html">こちら</a>。<br />
+                <br />
+                <a href="https://giftee.co/u/kabekabe"
+                   class="btn btn-outline-info mt-1"
+                   target="_blank">開発者にコーヒーをおごる</a>
+                <span class="text-muted small">（gifteeへのリンクです）</span>
+
+            </div>
+        </div>
+    </article>
+
+    <hr />
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="">
+                <div class="text-center">
+
+                    <ul class="shareList">
+                        <li class="shareList__item">
+                            <a class="shareList__link lsf-icon icon-twitter"
+                               onclick="clickBtnShare()"
+                               title="twitter"
+                               href="#"></a>
+                        </li>
+                        <li class="shareList__item">
+                            <a class="shareList__link lsf-icon icon-facebook"
+                               href="javascript:window.open('http://www.facebook.com/sharer.php?u='+encodeURIComponent(location.href),'sharewindow','width=550, height=450, personalbar=0, toolbar=0, scrollbars=1, resizable=!');"
+                               target="_blank"
+                               title="facebook"></a>
+                        </li>
+
+                        <!-- <li class="shareList__item">
+                          <a
+                            class="shareList__link lsf-icon icon-hatebu"
+                            href="javascript:window.open('https://b.hatena.ne.jp/add?mode=confirm&url='+encodeURIComponent(location.href)&title=タイトル,'sharewindow','width=550, height=450, personalbar=0, toolbar=0, scrollbars=1, resizable=!')"
+                            target="_blank"
+                            title="hatena"
+                          ></a>
+                        </li> -->
+
+                        <li class="shareList__item">
+                            <a class="shareList__link lsf-icon icon-hatebu"
+                               href="https://b.hatena.ne.jp/entry/s/imokabe.github.io/iroiro/project/Contents/Tools/nombreTool.html"
+                               target="_blank"
+                               data-hatena-bookmark-layout="basic"
+                               title="hatena"></a>
+                            <script type="text/javascript"
+                                    src="https://b.st-hatena.com/js/bookmark_button.js"
+                                    charset="utf-8"
+                                    async="async"></script>
+                        </li>
+                        <!--           <li class="shareList__item">
+                          <a
+                            class="shareList__link lsf-icon icon-rss"
+                            href="#"
+                            target="_blank"
+                            title="rss"
+                          ></a>
+                        </li> -->
+                        <li class="shareList__item">
+                            <a class="shareList__link lsf-icon icon-line"
+                               href="javascript:window.open('http://line.me/R/msg/text/?'+encodeURIComponent(document.title)+'%20'+encodeURIComponent(location.href),'sharewindow','width=550, height=450, personalbar=0, toolbar=0, scrollbars=1, resizable=!');"
+                               target="_blank"
+                               title="line"></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <p class="copyright text-muted text-center">
+                Copyright &copy; 2020 imoTools
+            </p>
+        </div>
+    </footer>
+
+    <!-- Optional JavaScript -->
+    <script src="../../Com/jQuery/jquery-3.5.0.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+            integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+            crossorigin="anonymous"></script>
+    <!-- html2canvas -->
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.5/dist/html2canvas.min.js"></script>
+    <!-- チャート -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" integrity="sha512-s+xg36jbIujB2S2VKfpGmlC3T5V2TF3lY48DX7u2r9XzGzgPsa6wTpOQA7J9iffvdeBN0q9tKzRxVxw1JviZPg==" crossorigin="anonymous"></script>
+    <!-- my js -->
+    <script type="text/javascript" src="../../Com/com.js"></script>
+    <script type="text/javascript" src="../../Com/randomPlot.js"></script>
+    <!-- js -->
+    <script>
+
+        $(function () {
+            // 初期表示時
+
+            var ctx = document.getElementById("myChart");
+            var myChart =  new Chart(ctx, {
+                type: 'polarArea',
+                data: {
+                 
+                    labels: ["感想", "リクエスト", "質問", "お返事"],
+                    datasets: [{
+                        backgroundColor: [
+                            "#FF1493", //ディープピンク
+                            "#FF8C00", //ダークオレンジ
+                            "#40E0D0", //トルコ石
+                            "#00BFFF", //ディープスカイブルー
+                        ],
+                        data: [5,5,5,5]
+                    }]
+                },
+                options: {
+                    title: {
+                        display: false,
+                        text: 'トリセツ'
+                    },
+                    scale: {
+                        ticks: {
+                            beginAtZero: true,
+                            min: 0,
+                            max: 10
+                        }
+                    },
+                    legend: {
+                        position: "bottom"
+                    }
+                }
+            });
+            $("#mainForm").on('change', function () {
+                myChart.data.datasets[0].data =
+                    [$("#range1").val(), $("#range2").val(), $("#range3").val(), $("#range4").val()];
+                myChart.update();
+            });
+        });
+
+
+    </script>
+</body>
+</html>
