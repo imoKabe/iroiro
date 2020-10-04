@@ -1,431 +1,358 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ja">
-  <head>
+<head>
     <!-- Required meta tags -->
     <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <!-- import CSS -->
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="stylesheet"
-      href="http://code.jquery.com/ui/1.12.1/themes/hot-sneaks/jquery-ui.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css"
-    />
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous" />
+    <link rel="stylesheet"
+          href="http://code.jquery.com/ui/1.12.1/themes/hot-sneaks/jquery-ui.css" />
+    <link rel="stylesheet"
+          href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css" />
     <link href="../../Com/LigatureSymbols/style.css" rel="stylesheet" />
     <link rel="stylesheet" href="../../Com/shareStyle.css" />
     <!-- my CSS -->
     <link href="../../Com/css01.css" rel="stylesheet" />
     <title>ページ数からノンブル分かるやつ</title>
-  </head>
-  <body>
+</head>
+<body>
     <nav class="navbar navbar-expand navbar-dark bg-info">
-      <a class="navbar-brand" href="#">imoTools</a>
+        <a class="navbar-brand lsf-icon" title="spanner" href="./index.html">imoTools</a>
 
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbar"
-        aria-controls="navbar"
-        aria-expanded="false"
-        aria-label="ナビゲーションの切替"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
+        <button class="navbar-toggler"
+                type="button"
+                data-toggle="collapse"
+                data-target="#navbar"
+                aria-controls="navbar"
+                aria-expanded="false"
+                aria-label="ナビゲーションの切替">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-      <div class=".collapse.show" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="./imoToolUsage.html">利用規約</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a
-              class="nav-link dropdown-toggle active"
-              href="#"
-              id="dropdown"
-              data-toggle="dropdown"
-              aria-haspopup="true"
-              aria-expanded="false"
-              >ツール</a
-            >
-            <div
-              class="dropdown-menu"
-              aria-labelledby="dropdown"
-              style="z-index: 1030 !important"
-            >
-              <a class="dropdown-item active" href="./nombreTool.html"
-                >ページ数からノンブル分かるやつ</a
-              >
-              <a class="dropdown-item" href="./randomEchiTool.html"
-                >ランダムえちえちプロット</a
-              >
-              <a class="dropdown-item" href="./randomHorrorTool.html"
-                >ランダムホラープロット（準備中）</a
-              >
-            </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="https://note.com/kashiri"
-              >note（紹介記事など）</a
-            >
-          </li>
-        </ul>
-      </div>
+        <div class=".collapse.show" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link lsf-icon" title="info" href="./imoToolUsage.html">利用規約</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle active lsf-icon" title="app" href="#" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">ツール</a>
+                    <div class="dropdown-menu"
+                         aria-labelledby="dropdown"
+                         style="z-index: 1030 !important">
+                        <a class="dropdown-item active" href="./nombreTool.html">ページ数からノンブル分かるやつ</a>
+                        <a class="dropdown-item " href="./torisetuTool.html">匿名箱のトリセツジェネレーター</a>
+                        <a class="dropdown-item" href="./randomEchiTool.html">ランダムえちえちプロット</a>
+                        <a class="dropdown-item" href="./randomHorrorTool.html">ランダムホラープロット</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link lsf-icon" title="link" target="_blank" href="https://note.com/kashiri">note</a>
+                </li>
+            </ul>
+        </div>
     </nav>
 
     <!-- Post Content -->
     <article>
-      <div class="container">
-        <div class="row">
-          <div class="">
-            <div class="">
-              <div id="dispSum" class="mb-2 sticky-top">
-                <label id="sum"></label> <label id="sumAlert"></label>
-              </div>
+        <div class="container">
+            <div class="row">
+                <div class="">
+                    <div class="">
+                        <div id="dispSum" class="mb-2 sticky-top">
+                            <label id="sum"></label> <label id="sumAlert"></label>
+                        </div>
 
-              <table id="tblSortable" class="table table-condensed tblCalc">
-                <thead class="">
-                  <tr>
-                    <th></th>
-                    <th>タイトル</th>
-                    <th>ページ数</th>
-                    <th>開始</th>
-                    <th>終了</th>
-                    <th>始まり</th>
-                    <th>行削除</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td class="">
-                      <span class="lsf-icon move" title="move"></span>
-                    </td>
-                    <td class="">
-                      <input
-                        type="text"
-                        class="form-control name"
-                        value="表１、表２"
-                        placeholder="例:タイトル"
-                      />
-                    </td>
-                    <td>
-                      <input
-                        type="number"
-                        class="form-control page"
-                        value="2"
-                        placeholder="例:2"
-                        min="1"
-                      />
-                    </td>
-                    <td>
-                      <label class="start"></label>
-                    </td>
-                    <td>
-                      <label class="end"></label>
-                    </td>
-                    <td>
-                      <label class="sayu"></label>
-                    </td>
-                    <td>
-                      <button
-                        class="del btn btn-gray lsf-icon"
-                        title="delete"
-                      ></button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="">
-                      <span class="lsf-icon move" title="move"></span>
-                    </td>
-                    <td>
-                      <input
-                        type="text"
-                        class="form-control name"
-                        value="扉"
-                        placeholder="例:タイトル"
-                      />
-                    </td>
-                    <td>
-                      <input
-                        type="number"
-                        class="form-control page"
-                        value="1"
-                        placeholder="例:1"
-                        min="1"
-                      />
-                    </td>
-                    <td>
-                      <label class="start"></label>
-                    </td>
-                    <td>
-                      <label class="end"></label>
-                    </td>
-                    <td>
-                      <label class="sayu"></label>
-                    </td>
-                    <td>
-                      <button
-                        class="del btn btn-gray lsf-icon"
-                        title="delete"
-                      ></button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="">
-                      <span class="lsf-icon move" title="move"></span>
-                    </td>
-                    <td>
-                      <input
-                        type="text"
-                        class="form-control name"
-                        value="目次"
-                        placeholder="例:タイトル"
-                      />
-                    </td>
-                    <td>
-                      <input
-                        type="number"
-                        class="form-control page"
-                        value="1"
-                        placeholder="例:1"
-                        min="1"
-                      />
-                    </td>
-                    <td>
-                      <label class="start"></label>
-                    </td>
-                    <td>
-                      <label class="end"></label>
-                    </td>
-                    <td>
-                      <label class="sayu"></label>
-                    </td>
-                    <td>
-                      <button
-                        class="del btn btn-gray lsf-icon"
-                        title="delete"
-                      ></button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="">
-                      <span class="lsf-icon move" title="move"></span>
-                    </td>
-                    <td>
-                      <input
-                        type="text"
-                        class="form-control name"
-                        value="タイトル１"
-                        placeholder="例:タイトル"
-                      />
-                    </td>
-                    <td>
-                      <input
-                        type="number"
-                        class="form-control page"
-                        value="8"
-                        placeholder="例:8"
-                        min="1"
-                      />
-                    </td>
-                    <td>
-                      <label class="start"></label>
-                    </td>
-                    <td>
-                      <label class="end"></label>
-                    </td>
-                    <td>
-                      <label class="sayu"></label>
-                    </td>
-                    <td>
-                      <button
-                        class="del btn btn-gray lsf-icon"
-                        title="delete"
-                      ></button>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-              <div class="">
-                <button class="addCopy btn btn-info lsf-icon" title="add">
-                  最終行をコピーして追加
-                </button>
-                <button class="addAdjust btn btn-gray lsf-icon" title="add">
-                  調整用１P追加
-                </button>
-                <button class="addLast btn btn-gray lsf-icon" title="add">
-                  奥付・裏表紙追加
-                </button>
-              </div>
-              <div style="height: 0.5em"></div>
-              <button
-                id="btnSave"
-                class="btn btn-secondary lsf-icon"
-                title="time"
-                onclick="clickSave()"
-              >
-                しばらく保存する</button
-              ><br />
-              <span class="text-muted small"
-                >※ブラウザのCookieにデータを保存し、次回アクセス時に復元できるようにします（後述）</span
-              >
-              <br />
-              <br />
-              <!--      ------------
-            単体：<a href="mailto:mail@example.com" class="lsf">check</a><br />
-            ビフォアでアイコン<div class="lsf-icon" title="check">Twitter</div>
-            --------------     -->
-            </div>
-            <hr />
-            <div class="txtArea">
-              <h2 class="">「ページ数からノンブル分かるやつ」の使い方</h2>
-              <p>
-                個々のページ数を入力すると、自動で開始ページと終了ページのノンブル（全体の通し番号）を計算します。<br /><br />
-                追加ボタンで行が増やせます。<br />
-                左の「<span class="lsf-icon move" title="move"></span
-                >」をドラッグすることで、順番の並び替えが可能です。<br />
-                左右どちらのページから開始するかも表示していますが、これは右とじ（縦書き、漫画や国語の教科書と同じ開き方）にしか対応していません。
-              </p>
-              <p>
-                以下は、実際の漫画アンソロ/合同誌を想定したサンプルです。<br />
-                漫画なので、すべて左はじまりになるよう調整しています。
-              </p>
+                        <table id="tblSortable" class="table table-condensed tblCalc">
+                            <thead class="">
+                                <tr>
+                                    <th></th>
+                                    <th>タイトル</th>
+                                    <th>ページ数</th>
+                                    <th>開始</th>
+                                    <th>終了</th>
+                                    <th>始まり</th>
+                                    <th>行削除</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="">
+                                        <span class="lsf-icon move" title="move"></span>
+                                    </td>
+                                    <td class="">
+                                        <input type="text"
+                                               class="form-control name"
+                                               value="表１、表２"
+                                               placeholder="例:タイトル" />
+                                    </td>
+                                    <td>
+                                        <input type="number"
+                                               class="form-control page"
+                                               value="2"
+                                               placeholder="例:2"
+                                               min="1" />
+                                    </td>
+                                    <td>
+                                        <label class="start"></label>
+                                    </td>
+                                    <td>
+                                        <label class="end"></label>
+                                    </td>
+                                    <td>
+                                        <label class="sayu"></label>
+                                    </td>
+                                    <td>
+                                        <button class="del btn btn-gray lsf-icon"
+                                                title="delete"></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="">
+                                        <span class="lsf-icon move" title="move"></span>
+                                    </td>
+                                    <td>
+                                        <input type="text"
+                                               class="form-control name"
+                                               value="扉"
+                                               placeholder="例:タイトル" />
+                                    </td>
+                                    <td>
+                                        <input type="number"
+                                               class="form-control page"
+                                               value="1"
+                                               placeholder="例:1"
+                                               min="1" />
+                                    </td>
+                                    <td>
+                                        <label class="start"></label>
+                                    </td>
+                                    <td>
+                                        <label class="end"></label>
+                                    </td>
+                                    <td>
+                                        <label class="sayu"></label>
+                                    </td>
+                                    <td>
+                                        <button class="del btn btn-gray lsf-icon"
+                                                title="delete"></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="">
+                                        <span class="lsf-icon move" title="move"></span>
+                                    </td>
+                                    <td>
+                                        <input type="text"
+                                               class="form-control name"
+                                               value="目次"
+                                               placeholder="例:タイトル" />
+                                    </td>
+                                    <td>
+                                        <input type="number"
+                                               class="form-control page"
+                                               value="1"
+                                               placeholder="例:1"
+                                               min="1" />
+                                    </td>
+                                    <td>
+                                        <label class="start"></label>
+                                    </td>
+                                    <td>
+                                        <label class="end"></label>
+                                    </td>
+                                    <td>
+                                        <label class="sayu"></label>
+                                    </td>
+                                    <td>
+                                        <button class="del btn btn-gray lsf-icon"
+                                                title="delete"></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="">
+                                        <span class="lsf-icon move" title="move"></span>
+                                    </td>
+                                    <td>
+                                        <input type="text"
+                                               class="form-control name"
+                                               value="タイトル１"
+                                               placeholder="例:タイトル" />
+                                    </td>
+                                    <td>
+                                        <input type="number"
+                                               class="form-control page"
+                                               value="8"
+                                               placeholder="例:8"
+                                               min="1" />
+                                    </td>
+                                    <td>
+                                        <label class="start"></label>
+                                    </td>
+                                    <td>
+                                        <label class="end"></label>
+                                    </td>
+                                    <td>
+                                        <label class="sayu"></label>
+                                    </td>
+                                    <td>
+                                        <button class="del btn btn-gray lsf-icon"
+                                                title="delete"></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="">
+                            <button class="addCopy btn btn-info lsf-icon" title="add">
+                                最終行をコピーして追加
+                            </button>
+                            <button class="addAdjust btn btn-gray lsf-icon" title="add">
+                                調整用１P追加
+                            </button>
+                            <button class="addLast btn btn-gray lsf-icon" title="add">
+                                奥付・裏表紙追加
+                            </button>
+                        </div>
+                        <div style="height: 0.5em"></div>
+                        <button id="btnSave"
+                                class="btn btn-secondary lsf-icon"
+                                title="time"
+                                onclick="clickSave()">
+                            しばらく保存する
+                        </button><br />
+                        <span class="text-muted small">※ブラウザのCookieにデータを保存し、次回アクセス時に復元できるようにします（後述）</span>
+                        <br />
+                        <br />
+                        <!--      ------------
+                        単体：<a href="mailto:mail@example.com" class="lsf">check</a><br />
+                        ビフォアでアイコン<div class="lsf-icon" title="check">Twitter</div>
+                        --------------     -->
+                    </div>
+                    <hr />
+                    <div class="txtArea">
+                        <h2 class="">「ページ数からノンブル分かるやつ」の使い方</h2>
+                        <p>
+                            個々のページ数を入力すると、自動で開始ページと終了ページのノンブル（全体の通し番号）を計算します。<br /><br />
+                            追加ボタンで行が増やせます。<br />
+                            左の「<span class="lsf-icon move" title="move"></span>」をドラッグすることで、順番の並び替えが可能です。<br />
+                            左右どちらのページから開始するかも表示していますが、これは右とじ（縦書き、漫画や国語の教科書と同じ開き方）にしか対応していません。
+                        </p>
+                        <p>
+                            以下は、実際の漫画アンソロ/合同誌を想定したサンプルです。<br />
+                            漫画なので、すべて左はじまりになるよう調整しています。
+                        </p>
 
-              <img src="./gamen.png" width="300px" />
-              <br />
-              <br />
-              <h4 class="">Cookieについて</h4>
-              Cookieとは、閲覧者のブラウザにログイン情報などのテキストデータを保存する機能で、多くのウェブサイトに使われています。<br />
-              当ページでは、同ブラウザによる前回の入力情報の復元にのみ使用しています。有効期限は約半年です。<br />
-              基本的には、画面のリフレッシュ時に前回「保存する」ボタンを押したときの状態を復元します。<br />
-              Cookieの有効期限切れ、あるいはブラウザでのCookieクリアなどにより復元できなくなる場合があるので、
-              確定した情報の保存・共有はスクリーンショットでの画像形式をおすすめします。
-              <br /><br />
-              <h4 class="">利用規約</h4>
-              常識の範囲内の使用は完全フリーですが、シェア＆使ったよ報告していただけると嬉しいです。<br />
-              詳しい利用規約は<a href="./imoToolUsage.html">こちら</a>。<br />
-              <br />
-              <a
-                href="https://giftee.co/u/kabekabe"
-                class="btn btn-outline-info mt-1"
-                target="_blank"
-                >開発者にコーヒーをおごる</a
-              >
-              <span class="text-muted small">（gifteeへのリンクです）</span>
+                        <img src="./gamen.png" width="300px" />
+                        <br />
+                        <br />
+                        <h4 class="">Cookieについて</h4>
+                        Cookieとは、閲覧者のブラウザにログイン情報などのテキストデータを保存する機能で、多くのウェブサイトに使われています。<br />
+                        当ページでは、同ブラウザによる前回の入力情報の復元にのみ使用しています。有効期限は約半年です。<br />
+                        基本的には、画面のリフレッシュ時に前回「保存する」ボタンを押したときの状態を復元します。<br />
+                        Cookieの有効期限切れ、あるいはブラウザでのCookieクリアなどにより復元できなくなる場合があるので、
+                        確定した情報の保存・共有はスクリーンショットでの画像形式をおすすめします。
+                        <br /><br />
+                        <h4 class="">利用規約</h4>
+                        常識の範囲内の使用は完全フリーですが、シェア＆使ったよ報告していただけると嬉しいです。<br />
+                        詳しい利用規約は<a href="./imoToolUsage.html">こちら</a>。<br />
+                        <br />
+                        <a href="https://giftee.co/u/kabekabe"
+                           class="btn btn-outline-info mt-1"
+                           target="_blank">開発者にコーヒーをおごる</a>
+                        <span class="text-muted small">（gifteeへのリンクです）</span>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
     </article>
 
     <hr />
 
     <!-- Footer -->
     <footer>
-      <div class="container">
-        <div class="">
-          <div class="text-center">
+        <div class="container">
+            <div class="">
+                <div class="text-center">
 
-            <ul class="shareList">
-              <li class="shareList__item">
-                <a
-                  class="shareList__link lsf-icon icon-twitter"
-                  onclick="clickBtnShareTagFirst('を使っています','ページ数からノンブル分かるやつ')"
-                  title="twitter"
-                  href="#"
-                ></a>
-              </li>
-              <li class="shareList__item">
-                <a
-                  class="shareList__link lsf-icon icon-facebook"
-                  href="javascript:window.open('http://www.facebook.com/sharer.php?u='+encodeURIComponent(location.href),'sharewindow','width=550, height=450, personalbar=0, toolbar=0, scrollbars=1, resizable=!');"
-                  target="_blank"
-                  title="facebook"
-                ></a>
-              </li>
+                    <ul class="shareList">
+                        <li class="shareList__item">
+                            <a class="shareList__link lsf-icon icon-twitter"
+                               onclick="clickBtnShareTagFirst('を使っています','ページ数からノンブル分かるやつ')"
+                               title="twitter"
+                               href="#"></a>
+                        </li>
+                        <li class="shareList__item">
+                            <a class="shareList__link lsf-icon icon-facebook"
+                               href="javascript:window.open('http://www.facebook.com/sharer.php?u='+encodeURIComponent(location.href),'sharewindow','width=550, height=450, personalbar=0, toolbar=0, scrollbars=1, resizable=!');"
+                               target="_blank"
+                               title="facebook"></a>
+                        </li>
 
-              <!-- <li class="shareList__item">
-                <a
-                  class="shareList__link lsf-icon icon-hatebu"
-                  href="javascript:window.open('https://b.hatena.ne.jp/add?mode=confirm&url='+encodeURIComponent(location.href)&title=タイトル,'sharewindow','width=550, height=450, personalbar=0, toolbar=0, scrollbars=1, resizable=!')"
-                  target="_blank"
-                  title="hatena"
-                ></a>
-              </li> -->
+                        <!-- <li class="shareList__item">
+                          <a
+                            class="shareList__link lsf-icon icon-hatebu"
+                            href="javascript:window.open('https://b.hatena.ne.jp/add?mode=confirm&url='+encodeURIComponent(location.href)&title=タイトル,'sharewindow','width=550, height=450, personalbar=0, toolbar=0, scrollbars=1, resizable=!')"
+                            target="_blank"
+                            title="hatena"
+                          ></a>
+                        </li> -->
 
-              <li class="shareList__item">
-                <a
-                  class="shareList__link lsf-icon icon-hatebu"
-                  href="https://b.hatena.ne.jp/entry/s/imokabe.github.io/iroiro/project/Contents/Tools/nombreTool.html"
-                  target="_blank"
-                  data-hatena-bookmark-layout="basic"
-                  title="hatena"
-                ></a>
-                <script
-                  type="text/javascript"
-                  src="https://b.st-hatena.com/js/bookmark_button.js"
-                  charset="utf-8"
-                  async="async"
-                ></script>
-              </li>
-              <!--           <li class="shareList__item">
-                <a
-                  class="shareList__link lsf-icon icon-rss"
-                  href="#"
-                  target="_blank"
-                  title="rss"
-                ></a>
-              </li> -->
-              <li class="shareList__item">
-                <a
-                  class="shareList__link lsf-icon icon-line"
-                  href="javascript:window.open('http://line.me/R/msg/text/?'+encodeURIComponent(document.title)+'%20'+encodeURIComponent(location.href),'sharewindow','width=550, height=450, personalbar=0, toolbar=0, scrollbars=1, resizable=!');"
-                  target="_blank"
-                  title="line"
-                ></a>
-              </li>
-            </ul>
-          </div>
+                        <li class="shareList__item">
+                            <a class="shareList__link lsf-icon icon-hatebu"
+                               href="https://b.hatena.ne.jp/entry/s/imokabe.github.io/iroiro/project/Contents/Tools/nombreTool.html"
+                               target="_blank"
+                               data-hatena-bookmark-layout="basic"
+                               title="hatena"></a>
+                            <script type="text/javascript"
+                                    src="https://b.st-hatena.com/js/bookmark_button.js"
+                                    charset="utf-8"
+                                    async="async"></script>
+                        </li>
+                        <!--           <li class="shareList__item">
+                          <a
+                            class="shareList__link lsf-icon icon-rss"
+                            href="#"
+                            target="_blank"
+                            title="rss"
+                          ></a>
+                        </li> -->
+                        <li class="shareList__item">
+                            <a class="shareList__link lsf-icon icon-line"
+                               href="javascript:window.open('http://line.me/R/msg/text/?'+encodeURIComponent(document.title)+'%20'+encodeURIComponent(location.href),'sharewindow','width=550, height=450, personalbar=0, toolbar=0, scrollbars=1, resizable=!');"
+                               target="_blank"
+                               title="line"></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <p class="copyright text-muted text-center">
+                Copyright &copy; imoTools
+            </p>
         </div>
-        <p class="copyright text-muted text-center">
-          Copyright &copy; imoTools
-        </p>
-      </div>
     </footer>
 
     <!-- Optional JavaScript -->
     <!-- いらないなら、jQueryフォルダも消していい -->
     <script src="../../Com/jQuery/jquery-3.5.0.min.js"></script>
 
-    <!-- 
-    <script
-    src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-    crossorigin="anonymous"
-  ></script> -->
+    <!--
+      <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script> -->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-      integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-      integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-      crossorigin="anonymous"
-    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+            integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+            crossorigin="anonymous"></script>
     <!-- スマホ対応 -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
     <!-- Cookie -->
@@ -433,5 +360,5 @@
     <!-- my js -->
     <script type="text/javascript" src="../../Com/com.js"></script>
     <script type="text/javascript" src="../../Com/nombre.js"></script>
-  </body>
+</body>
 </html>

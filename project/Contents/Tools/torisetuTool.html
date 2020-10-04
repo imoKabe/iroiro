@@ -41,10 +41,10 @@
 
         #chartArea {
             position: relative;
-            height: 40vh;
             width: 40vw;
+            height: 40vh;
             margin: auto;
-    }
+        }
         /*  small&x-small*/
         @media (max-width: 767.98px) {
             #chartArea {
@@ -54,14 +54,13 @@
                 margin: auto;
             }
         }
-
     </style>
     <title>匿名箱のトリセツジェネレーター</title>
 </head>
 <body>
 
     <nav class="navbar navbar-expand navbar-dark bg-info">
-        <a class="navbar-brand" href="#">imoTools</a>
+        <a class="navbar-brand lsf-icon" title="spanner" href="./index.html">imoTools</a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="ナビゲーションの切替">
             <span class="navbar-toggler-icon"></span>
@@ -70,19 +69,19 @@
         <div class=".collapse.show" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item ">
-                    <a class="nav-link" href="./imoToolUsage.html">利用規約</a>
+                    <a class="nav-link lsf-icon" title="info" href="./imoToolUsage.html">利用規約</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle active" href="#" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">ツール</a>
+                    <a class="nav-link dropdown-toggle active lsf-icon" title="app" href="#" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">ツール</a>
                     <div class="dropdown-menu" aria-labelledby="dropdown" style="z-index: 1030 !important;">
                         <a class="dropdown-item " href="./nombreTool.html">ページ数からノンブル分かるやつ</a>
-                        <a class="dropdown-item " href="./torisetuTool.html">匿名箱のトリセツジェネレーター</a>
-                        <a class="dropdown-item active" href="./randomEchiTool.html">ランダムえちえちプロット</a>
-                        <a class="dropdown-item" href="./randomHorrorTool.html">ランダムホラープロット（準備中）</a>
+                        <a class="dropdown-item active" href="./torisetuTool.html">匿名箱のトリセツジェネレーター</a>
+                        <a class="dropdown-item " href="./randomEchiTool.html">ランダムえちえちプロット</a>
+                        <a class="dropdown-item" href="./randomHorrorTool.html">ランダムホラープロット</a>
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="https://note.com/kashiri">note（紹介記事など）</a>
+                    <a class="nav-link lsf-icon" title="link" target="_blank" href="https://note.com/kashiri">note</a>
                 </li>
             </ul>
         </div>
@@ -94,6 +93,14 @@
             <div id="picArea" class="row">
 
                 <div class="col-lg-8" style="">
+                    
+                    
+                    <div class="alert alert-warning" role="alert">
+                        <strong>試験公開中です。</strong><br />
+                        ほぼ完成していますがもう少し手を加えるかもしれません。不具合などあれば教えていただけると助かります<br />
+                    </div>
+
+
                     <form id="mainForm" class="form-horizonal">
 
                         <h4 class="mb-3 mt-3">匿名箱のトリセツジェネレーター</h4>
@@ -125,23 +132,23 @@
                                 </div>
                             </div>
                             <!--<div class="form-group row">
-                                <label for="" class="col-md-4 col-xl-3 col-form-label" style="font-size:80%;">
-                                    総量が同じ場合、嬉しい頻度
-                                </label>
-                                <div class="col-md-8 col-xl-9">
-                                    <div class="d-flex justify-content-between small">
-                                        <span>まとめて</span><span>ちょこちょこ</span>
-                                    </div>
-                                    <div id="sliderOpt2"></div>
-                                </div>
-                            </div>-->
+                <label for="" class="col-md-4 col-xl-3 col-form-label" style="font-size:80%;">
+                    総量が同じ場合、嬉しい頻度
+                </label>
+                <div class="col-md-8 col-xl-9">
+                    <div class="d-flex justify-content-between small">
+                        <span>まとめて</span><span>ちょこちょこ</span>
+                    </div>
+                    <div id="sliderOpt2"></div>
+                </div>
+            </div>-->
 
                         </div>
 
                         <hr />
 
                         <div class="form-group row">
-                            <label for="" class="col-md-4 col-xl-3 col-form-label font-weight-bold">■お題・リクエスト歓迎度</label>
+                            <label for="" class="col-md-4 col-xl-3 col-form-label font-weight-bold">■お題・リク歓迎度</label>
                             <div class="col-md-8 col-xl-9">
                                 <div class="d-flex justify-content-between small">
                                     <span>不要</span><span>歓迎</span>
@@ -306,23 +313,59 @@
 
             <br />
 
-            <a id="getImage" href="" style="display:none;" download="image.png">画像保存</a>
+            <div id="btnArea" class="d-flex justify-content-center">
+                <button id="ctnDispImage" class="btn btn-info lsf-icon" title="image" onclick="dispImage()">
+                    トリセツ画像作成
+                </button>
+                &nbsp;&nbsp;&nbsp;
+                <a id="getImage" href="" style="display:none;" download="image.png">画像保存</a>
 
-            <button id="downloadImageButton" class="btn btn-info lsf-icon" title="add" onclick="getDisplayImage()">
-                トリセツ画像取得
-            </button>
-            <!-- シェアボタン -->
-            <a onclick="clickBtnShareTagFirst('を作りました！','匿名箱のトリセツ')" href="#" class="btn btn-info lsf-icon" title="twitter">結果をつぶやく</a>
+                <!-- シェアボタン -->
+                <a onclick="clickBtnShareCustom()" href="#" class="btn btn-info lsf-icon" title="twitter">結果をつぶやく</a>
 
+            </div>
             <br />
 
+            <div class="d-flex justify-content-center align-items-center">
+                <!--画像表示-->
+                <div id="imageArea" style="padding:1em;background-color:#eee; display:none; text-align:center;">
+                    作成したトリセツ画像（縮小表示）<br />
+                    <img src="" alt="" id="canvas-image" width="200" style="margin:0.5em 0;"><br />
 
+                    <span class="small">（スマートフォンの場合は長押し、PCの場合は右クリックで端末に保存してください）</span>
+                </div>
+            </div>
 
 
             <div class="txtArea">
-                <h2 class="">使い方</h2>
+                <h4 class="">使い方</h4>
                 <p>
-                    スライダーで<br /><br />
+                    ①スライダーを動かして自分にぴったりのところで止める<br />
+                    ②「トリセツ画像作成」ボタンを押して結果画像を表示させる<br />
+                    ③画像を長押しか右クリックで保存する<br />
+                    ④「結果をつぶやく」ボタンを押し、トリセツ画像をアップロードして共有する<br />
+                    <br />
+                    <br />
+                    サンプル画像（フルオプションでPCから作成）<br />
+                    <img src="./トリセツ.png" width="400" style="border:solid 1px #ddd;"/>
+                    
+                    <br /><br />
+
+                    <h4 class="">Tips</h4>
+                    ・スマホ（縦）から作ると細長い画像になります。PCやタブレット（横）から作ると見やすい画像になります<br />
+                    ・ほしいものは「ほしい」、ほしくないものは「不要」と正直に表す方が、後々の困った事態を減らすかもしれません<br />
+                    ・オプションについては任意回答です<br />
+                    <br />
+                    <h4 class="">よくあるかもしれない質問</h4>
+                    Q：好きなところに画像を貼っていいか？<br />
+                    A：自由に使ってOK<br />
+                    Q：こういう項目もほしいんだが？<br />
+                    A：テキストを添えるなり画像を加工するなりして加えてどうぞ<br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="small">ツールのバージョンアップ要望・依頼は応相談</span><br />
+                    Q：微妙にずれてるんだが？<br />
+                    A：気にするな<br />
+                    Q：スマホからスライダーを動かすと青い線が見えるんだが？<br />
+                    A：気にするな<br />
                 </p>
                 <br />
                 <h4 class="">利用規約</h4>
@@ -349,7 +392,7 @@
                     <ul class="shareList">
                         <li class="shareList__item">
                             <a class="shareList__link lsf-icon icon-twitter"
-                               onclick="clickBtnShare()"
+                               onclick="clickBtnShareTagFirst('を使っています！','匿名箱のトリセツジェネレーター')"
                                title="twitter"
                                href="#"></a>
                         </li>
@@ -438,7 +481,7 @@
                             "#40E0D0", //トルコ石
                             "#00BFFF", //ディープスカイブルー
                         ],
-                        data: [5, 5, 5, 5]
+                        data: [50, 50, 50, 50]
                     }]
                 },
                 options: {
@@ -450,7 +493,7 @@
                         ticks: {
                             beginAtZero: true,
                             min: 0,
-                            max: 10
+                            max: 100
                         }
                     },
                     legend: {
@@ -480,9 +523,9 @@
             function setChangeSlidar(target) {
                 target.slider({
                     min: 0,
-                    max: 10,
-                    step: 1,
-                    value: 5,
+                    max: 100,
+                    step: 10,
+                    value: 50,
                     animate: true,
                     //変更時イベント
                     change: function (event, ui) {
@@ -494,9 +537,9 @@
             function setSlidar(target) {
                 target.slider({
                     min: 0,
-                    max: 10,
-                    step: 1,
-                    value: 5,
+                    max: 100,
+                    step: 10,
+                    value: 50,
                     animate: true,
 
                 });
@@ -529,6 +572,7 @@
                 switchOpt("#opt4", this);
             });
 
+
         });
 
 
@@ -544,41 +588,44 @@
         }
 
 
-        //画像取得DLメソッド
-        function downloadImage(data) {
-            var fname = "torisetu" + getNow() + ".png";
-            var encdata = atob(data.replace(/^.*,/, ""));
-            var outdata = new Uint8Array(encdata.length);
-            for (var i = 0; i < encdata.length; i++) {
-                outdata[i] = encdata.charCodeAt(i);
-            }
-            var blob = new Blob([outdata], ["image/png"]);
+        //画像表示
+        function dispImage() {
+            var scrollVal = $(window).scrollTop();//スクロール位置を保持
 
-            if (window.navigator.msSaveBlob) {
-                //IE用
-                window.navigator.msSaveOrOpenBlob(blob, fname);
-            } else {
-                //それ以外？
-                document.getElementById("getImage").href = data; //base64そのまま設定
-                document.getElementById("getImage").download = fname; //ダウンロードファイル名設定
-                document.getElementById("getImage").click(); //自動クリック
-            }
-        }
-        //画像保存ボタン押下時
-        function getDisplayImage() {
-            //html2canvas実行
-            alert("トリセツ画像をダウンロードします。\nしばらくしたらダウンロードフォルダを確認してください");
             $(".opt ").css("display", "none");//オプションリンク非表示
             $(window).scrollTop(0);   // スクロール
             $(window).scrollLeft(0);  // スクロール
-            html2canvas(document.getElementById("picArea"), {
-            }).then(function (canvas) {
-                downloadImage(canvas.toDataURL());
+
+            html2canvas(document.querySelector("#picArea")).then(canvas => {
+
+                // canvasをimgtタグに挿入できる形に変更
+                var imageData = canvas.toDataURL();
+                // imgタグに画像として、canvasの内容を挿入
+                document.getElementById('canvas-image').setAttribute("src", canvas.toDataURL());
             });
+
             $(".opt ").css("display", "inline-block");//オプションリンク表示
+            $("#imageArea").css("display", "inline-block");//画像エリア表示
+            $(window).scrollTop(scrollVal);   // スクロールもどす
+
         }
 
+        //シェアボタンクリック時
+        function clickBtnShareCustom() {
 
+            //カスタムテキスト
+            //#匿名箱のトリセツジェネレーター
+            var txt = "%0a"
+                + "【トリセツ作成結果】" + "%0a"
+                + "感想歓迎度：" + $("#slider1").slider('option', 'value') + "％%0a"
+                + "お題歓迎度：" + $("#slider2").slider('option', 'value') + "％%0a"
+                + "質問歓迎度：" + $("#slider3").slider('option', 'value') + "％%0a"
+                + "返事得意度：" + $("#slider4").slider('option', 'value') + "％%0a"
+                + "詳細は画像で！"
+                ;
+
+            clickBtnShareTagFirst(txt, '匿名箱のトリセツジェネレーター');
+        }
 
 
     </script>
