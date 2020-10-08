@@ -1,6 +1,16 @@
 ﻿<!DOCTYPE html>
 <html lang="ja">
 <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-180136701-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-180136701-1');
+    </script>
+
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta name="viewport"
@@ -22,7 +32,6 @@
         .card {
             margin: 0.5em;
         }
-
         .card-body {
             font-size: 90%;
             padding-top: 1em !important;
@@ -72,11 +81,11 @@
             <div id="" class="row">
 
                 <div class="col-md-6">
-                    <div class="card ">
+                    <div class="card">
                         <div class="card-header">
                             <h5>ページ数からノンブル分かるやつ</h5>
                         </div>
-                        <div class="card-body">
+                        <div class="card-body" id="nombre">
                             同人誌作成用ツール。<br />
                             個々のページ数を入力すると、全体の通し番号や左右開きが分かります。
                             表紙・裏表紙のページ数も忘れずに確保できる、アンソロ・合同誌初心者向け。
@@ -128,8 +137,6 @@
                     </div>
                 </div>
             </div>
-
-
 
             <br />
 
