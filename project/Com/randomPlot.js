@@ -1,5 +1,5 @@
 $(function () {
-  // 初期表示時
+
 
   //getを取得
   var arg = new Object();
@@ -36,7 +36,7 @@ $(function () {
 });
 
 //一括ボタン押下時
-function clicckRandomAll() {
+function clickRandomAll() {
   clickBtnEach($("#select1"));
   clickBtnEach($("#select2"));
   clickBtnEach($("#select3"));
@@ -65,80 +65,130 @@ function haneiTxt() {
 
   if ($("#span1").length) {
     var txt1 =
-      "二人は"+
+      "二人は【"+
       $("#select1 option:selected").text().trim() +
-      "という障害を乗り越え、";
+      "】という障害を乗り越え、";
     $("#span1").html(txt1.replace(" ", ""));
   }
   if ($("#span2").length) {
     var txt2 =
-    "全体を通して"+
+    "全体を通して【"+
       $("#select2 option:selected").text().trim() +
-      "。";
+      "】。";
     $("#span2").html(txt2.replace(" ", ""));
   }
   if ($("#span3").length) {
     var txt3 =
-      "行為のきっかけは"+
+      "行為のきっかけは【"+
       $("#select3 option:selected").text().trim() +
-      "で、";
+      "】で、";
     $("#span3").html(txt3.replace(" ", ""));
   }
   if ($("#span4").length) {
     var txt4 =
-      "場所は" +
+      "場所は【" +
       $("#select4 option:selected").text().trim() +
-      "だ。";
+      "】だ。";
     $("#span4").html(txt4.replace(" ", ""));
   }
   if ($("#span5").length) {
     var txt5 =
-    "オプションは"+
+    "オプションは【"+
       $("#select5 option:selected").text().trim() +
-      "で、";
+      "】で、";
     $("#span5").html(txt5.replace(" ", ""));
   }
   if ($("#span6").length) {
     var txt6 =
-    "最中は"+
+    "最中は【"+
       $("#select6 option:selected").text().trim() +
-      "交わり、";
+      "】交わり、";
     $("#span6").html(txt6.replace(" ", ""));
   }
   if ($("#span7").length) {
     var txt7 =
-    "結果は"+
+    "結果は【"+
       $("#select7 option:selected").text().trim() +
-      "。";
+      "】。";
     $("#span7").html(txt7.replace(" ", "").replace(" ", ""));
   }
 }
 
-//画像取得DLメソッド
-function downloadImage(data) {
-  var fname = "echiPlot"+ getNow() +".png";
-  var encdata = atob(data.replace(/^.*,/, ""));
-  var outdata = new Uint8Array(encdata.length);
-  for (var i = 0; i < encdata.length; i++) {
-    outdata[i] = encdata.charCodeAt(i);
-  }
-  var blob = new Blob([outdata], ["image/png"]);
 
-  if (window.navigator.msSaveBlob) {
-    //IE用
-    window.navigator.msSaveOrOpenBlob(blob, fname);
-  } else {
-    //それ以外？
-    document.getElementById("getImage").href = data; //base64そのまま設定
-    document.getElementById("getImage").download = fname; //ダウンロードファイル名設定
-    document.getElementById("getImage").click(); //自動クリック
-  }
+// プロット確定ボタン押下時
+function clickEnter(){
+
+    // 動的にパスを作成
+    var targetUrl = './randomEchiResult.html?';
+
+    targetUrl = targetUrl + 's1=' + $("#select1").val();
+    targetUrl = targetUrl + '&' + 's2=' + $("#select2").val();
+    targetUrl = targetUrl + '&' + 's3=' + $("#select3").val();
+    targetUrl = targetUrl + '&' + 's4=' + $("#select4").val();
+    targetUrl = targetUrl + '&' + 's5=' + $("#select5").val();
+    targetUrl = targetUrl + '&' + 's6=' + $("#select6").val();
+    targetUrl = targetUrl + '&' + 's7=' + $("#select7").val();
+
+    window.location.href = targetUrl; 
+    //window.open('パス名', '_blank'); // 新しいタブを開き、ページを表示
+
 }
-//画像保存ボタン押下時
-function getDisplayImage() {
-  //html2canvas実行
-  alert("プロット画像をダウンロードします。\nしばらくしたらダウンロードフォルダを確認してください");
-  html2canvas(document.getElementById("plotResult")).then(function (canvas) {
-    downloadImage(canvas.toDataURL());
-  });
+
+
+
+//画像表示
+function dispImage() {
+    var scrollVal = $(window).scrollTop();//スクロール位置を保持
+
+    $(window).scrollTop(0);   // スクロール
+    $(window).scrollLeft(0);  // スクロール
+
+    html2canvas(document.querySelector("#picArea")).then(canvas => {
+
+        // canvasをimgtタグに挿入できる形に変更
+        var imageData = canvas.toDataURL();
+        // imgタグに画像として、canvasの内容を挿入
+        document.getElementById('canvas-image').setAttribute("src", canvas.toDataURL());
+    });
+
+    $("#imageArea").css("display", "inline-block");//画像エリア表示
+    $(window).scrollTop(scrollVal);   // スクロールもどす
+
+}
+
+//シェアボタンクリック時
+function clickBtnShareCustom() {
+
+    var result = $("#span1").html() + $("#span2").html() + $("#span3").html() +
+        $("#span4").html() + $("#span5").html() + $("#span6").html() + $("#span7").html();
+    var cutStr = '';
+    var maxLength = 100;
+
+    if (result.length > maxLength) {
+        cutStr = result.substr(0, maxLength) + '……'
+    }
+
+    //カスタムテキスト
+    var txt = "%0a"
+        + cutStr + "%0a"
+        ;
+
+    clickBtnShareTagFirstParam(txt, 'ランダムえちえちプロット');
+}
+
+function clickBtnBack() {
+
+    // 動的にパスを作成
+    var targetUrl = './randomEchiTool.html?';
+
+    targetUrl = targetUrl + 's1=' + $("#select1").val();
+    targetUrl = targetUrl + '&' + 's2=' + $("#select2").val();
+    targetUrl = targetUrl + '&' + 's3=' + $("#select3").val();
+    targetUrl = targetUrl + '&' + 's4=' + $("#select4").val();
+    targetUrl = targetUrl + '&' + 's5=' + $("#select5").val();
+    targetUrl = targetUrl + '&' + 's6=' + $("#select6").val();
+    targetUrl = targetUrl + '&' + 's7=' + $("#select7").val();
+
+    window.location.href = targetUrl;
+
 }
