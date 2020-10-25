@@ -29,6 +29,16 @@
     <!-- my CSS -->
     <link href="../../Com/css01.css" rel="stylesheet" />
     <title>ランダムえちえちプロット</title>
+
+    <style>
+        @media screen and (max-width:767px) {
+            /*　画面サイズが767px以下の場合読み込む　*/
+
+            #allTables, #allTables select, #allTables input {
+                font-size: 90%;
+            }
+        }
+    </style>
 </head>
 <body>
     <nav class="navbar navbar-expand navbar-dark bg-info">
@@ -72,257 +82,245 @@
             <div class="row">
                 <div class="">
                     <div class="">
+
+                        <h4 class="mb-3 mt-3">ランダムえちえちプロット</h4>
                         <div id="" class="mb-2">
-                            <div class="alert alert-warning" role="alert">
-                                <strong>まだβ版です。</strong><br />
-                                「確定」ボタンは押せませんが、ランダム生成自体はできます。<br />
-                                完成版では確定後プレーンテキストでプロットが出力され、URLで他者と共有したりSNS共有したりできます。
-                            </div>
+
                             <button class="btn btn-gray lsf-icon"
                                     title="random"
-                                    onclick="clicckRandomAll()">
+                                    onclick="clickRandomAll()">
                                 ランダム一括変更
                             </button>
 
                         </div>
 
                         <div class="form-group">
-                            <table id="tblPlotWhole" class="table table-condensed">
-                                <thead class="">
-                                    <tr>
-                                        <th colspan="4">全体の流れ</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td class="">障害</td>
-                                        <td class="">
-                                            <select id="select1" class="form-control">
-                                                <option value="0">  喧嘩</option>
-                                                <option value="1">  恐怖体験</option>
-                                                <option value="2">  謎</option>
-                                                <option value="3">  守れなかった約束</option>
-                                                <option value="4">  失敗</option>
-                                                <option value="5">  嫉妬</option>
-                                                <option value="6">  すれ違い</option>
-                                                <option value="7">  誤解</option>
-                                                <option value="8">  悪天候</option>
-                                                <option value="9">  急な休み・出勤</option>
-                                                <option value="10">  トラウマ</option>
-                                                <option value="11">  怪我</option>
-                                                <option value="12">  風邪</option>
-                                                <option value="13">  妨害</option>
-                                                <option value="14">  嘘</option>
-                                                <option value="15">  悪夢</option>
-                                                <option value="16">  追跡/逃亡</option>
-                                                <option value="17">  心変わり</option>
-                                                <option value="18">  転落</option>
-                                                <option value="19">  依存</option>
-                                                <option value="20">  過労</option>
-                                                <option value="21">  失言</option>
-                                                <option value="22">  想定外</option>
-                                                <option value="23">  誘惑</option>
-                                                <option value="24">  別離</option>
-                                            </select>
-                                        </td>
+                            <div id="allTables">
+                                <table id="tblPlotWhole" class="table table-condensed">
+                                    <thead class="">
+                                        <tr>
+                                            <th colspan="4">全体の流れ</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="">障害</td>
+                                            <td class="">
+                                                <select id="select1" class="form-control">
+                                                    <option value="0">喧嘩</option>
+                                                    <option value="1">恐怖体験</option>
+                                                    <option value="2">謎</option>
+                                                    <option value="3">守れなかった約束</option>
+                                                    <option value="4">失敗</option>
+                                                    <option value="5">嫉妬</option>
+                                                    <option value="6">すれ違い</option>
+                                                    <option value="7">誤解</option>
+                                                    <option value="8">悪天候</option>
+                                                    <option value="9">急な予定変更</option>
+                                                    <option value="10">トラウマ</option>
+                                                    <option value="11">怪我</option>
+                                                    <option value="12">風邪</option>
+                                                    <option value="13">妨害</option>
+                                                    <option value="14">嘘</option>
+                                                    <option value="15">悪夢</option>
+                                                    <option value="16">追跡/逃亡</option>
+                                                    <option value="17">喪失</option>
+                                                    <option value="18">転落</option>
+                                                    <option value="19">依存</option>
+                                                    <option value="20">過労</option>
+                                                    <option value="21">失言</option>
+                                                    <option value="22">想定外</option>
+                                                    <option value="23">誘惑</option>
+                                                    <option value="24">別離</option>
+                                                </select>
+                                            </td>
 
-                                        <td>
-                                            <button class="addCopy btn btn-gray lsf-icon"
-                                                    title="random"
-                                                    onclick="clickBtnEach($('#select1'))">
-                                                変更
-                                            </button>
-                                        </td>
-                                    </tr>
+                                            <td>
+                                                <button class="btnChange btn btn-gray lsf-icon"
+                                                        title="random"
+                                                        onclick="clickBtnEach($('#select1'))">
+                                                    変更
+                                                </button>
+                                            </td>
+                                        </tr>
 
-                                    <tr>
-                                        <td class="">成果</td>
-                                        <td class="">
-                                            <select id="select2" class="form-control">
-                                                <option value="0">
-                                                    （両）片思いだったが、両思いになった
-                                                </option>
-                                                <option value="1">
-                                                    喧嘩中だったが、仲直りした
-                                                </option>
-                                                <option value="2">
-                                                    初対面だったが、恋に落ちた
-                                                </option>
-                                                <option value="3">
-                                                    友達/知り合いだったが、片思いになった
-                                                </option>
-                                                <option value="4">
-                                                    友達/知り合いだったが、両思いになった
-                                                </option>
-                                                <option value="5">
-                                                    相手への不満・不理解・不安が解消した
-                                                </option>
-                                                <option value="6">
-                                                    相手の意外な一面が明らかになった
-                                                </option>
-                                                <option value="7">  相手の過去がわかった</option>
-                                                <option value="8">
-                                                    険悪な仲だったが、分かり合えた
-                                                </option>
-                                                <option value="9">
-                                                    久しぶりに愛を再確認した/惚れ直した
-                                                </option>
-                                            </select>
-                                        </td>
-                                        <td>
-                                            <button class="addCopy btn btn-gray lsf-icon"
-                                                    title="random"
-                                                    onclick="clickBtnEach($('#select2'))">
-                                                変更
-                                            </button>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                                        <tr>
+                                            <td class="">成果</td>
+                                            <td class="">
+                                                <select id="select2" class="form-control">
+                                                    <option value="0">片思いだったが、両思いになった</option>
+                                                    <option value="1">喧嘩中だったが、仲直りした</option>
+                                                    <option value="2">初対面だったが、恋に落ちた</option>
+                                                    <option value="3">意識していなかったが、片思いになった</option>
+                                                    <option value="4">意識していなかったが、両思いになった</option>
+                                                    <option value="5">相手への不満・不理解・不安が解消した</option>
+                                                    <option value="6">相手の意外な一面が明らかになった</option>
+                                                    <option value="7">相手の本音/過去がわかった</option>
+                                                    <option value="8">険悪な仲だったが、分かり合えた</option>
+                                                    <option value="9">久しぶりに愛を再確認した</option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <button class="btnChange btn btn-gray lsf-icon"
+                                                        title="random"
+                                                        onclick="clickBtnEach($('#select2'))">
+                                                    変更
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
 
-                            <table id="tblPlotSex" class="table table-condensed">
-                                <thead class="">
-                                    <tr>
-                                        <th colspan="4">行為の流れ</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td class="">きっかけ</td>
-                                        <td class="">
-                                            <select id="select3" class="form-control">
-                                                <option value="0">  溜まっていたから</option>
-                                                <option value="1">  割り切った性欲処理</option>
-                                                <option value="2">  片方の提案</option>
-                                                <option value="3">  暦・季節イベント</option>
-                                                <option value="4">  キス</option>
-                                                <option value="5">  ムラムラ</option>
-                                                <option value="6">  不安から</option>
-                                                <option value="7">  〇〇の練習のため</option>
-                                                <option value="8">  約束/契約</option>
-                                                <option value="9">  習慣だから</option>
-                                                <option value="10">  好奇心</option>
-                                            </select>
-                                        </td>
-                                        <td>
-                                            <button class="addCopy btn btn-gray lsf-icon"
-                                                    title="random"
-                                                    onclick="clickBtnEach($('#select3'))">
-                                                変更
-                                            </button>
-                                        </td>
-                                    </tr>
+                                <table id="tblPlotSex" class="table table-condensed">
+                                    <thead class="">
+                                        <tr>
+                                            <th colspan="4">行為の流れ</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="">きっかけ</td>
+                                            <td class="">
+                                                <select id="select3" class="form-control">
+                                                    <option value="0">溜まっていたから</option>
+                                                    <option value="1">割り切った性欲処理</option>
+                                                    <option value="2">片方の提案</option>
+                                                    <option value="3">暦・季節イベント</option>
+                                                    <option value="4">身体接触</option>
+                                                    <option value="5">愛欲</option>
+                                                    <option value="6">不安から</option>
+                                                    <option value="7">練習のため</option>
+                                                    <option value="8">約束/契約</option>
+                                                    <option value="9">習慣だから</option>
+                                                    <option value="10">好奇心</option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <button class="btnChange btn btn-gray lsf-icon"
+                                                        title="random"
+                                                        onclick="clickBtnEach($('#select3'))">
+                                                    変更
+                                                </button>
+                                            </td>
+                                        </tr>
 
-                                    <tr>
-                                        <td class="">場所</td>
-                                        <td class="">
-                                            <select id="select4" class="form-control">
-                                                <option value="0">  家</option>
-                                                <option value="1">  出先</option>
-                                                <option value="2">  旅行先</option>
-                                                <option value="3">  トイレ</option>
-                                                <option value="4">  ホテル</option>
-                                                <option value="5">  車</option>
-                                                <option value="6">  学校や職場</option>
-                                            </select>
-                                        </td>
-                                        <td>
-                                            <button class="addCopy btn btn-gray lsf-icon"
-                                                    title="random"
-                                                    onclick="clickBtnEach($('#select4'))">
-                                                変更
-                                            </button>
-                                        </td>
-                                    </tr>
+                                        <tr>
+                                            <td class="">場所</td>
+                                            <td class="">
+                                                <select id="select4" class="form-control">
+                                                    <option value="0">家</option>
+                                                    <option value="1">出先</option>
+                                                    <option value="2">旅行先</option>
+                                                    <option value="3">トイレ</option>
+                                                    <option value="4">ホテル</option>
+                                                    <option value="5">車</option>
+                                                    <option value="6">学校や職場</option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <button class="btnChange btn btn-gray lsf-icon"
+                                                        title="random"
+                                                        onclick="clickBtnEach($('#select4'))">
+                                                    変更
+                                                </button>
+                                            </td>
+                                        </tr>
 
-                                    <tr>
-                                        <td class="">ｵﾌﾟｼｮﾝ</td>
-                                        <td class="">
-                                            <select id="select5" class="form-control">
-                                                <option value="0">  なし</option>
-                                                <option value="1">  コスプレ</option>
-                                                <option value="2">  拘束具</option>
-                                                <option value="3">  甘やかす</option>
-                                                <option value="4">  挿入する道具</option>
-                                                <option value="5">  震える道具</option>
-                                                <option value="6">  薬</option>
-                                                <option value="7">  スリル</option>
-                                                <option value="8">  ニッチ・特殊性癖</option>
-                                                <option value="9">  一部を執拗に責める</option>
-                                                <option value="10">  キス多め</option>
-                                                <option value="11">  教本やAV</option>
-                                                <option value="12">  我慢させる</option>
-                                                <option value="13">  身体変化（年齢操作など）</option>
-                                            </select>
-                                        </td>
-                                        <td>
-                                            <button class="addCopy btn btn-gray lsf-icon"
-                                                    title="random"
-                                                    onclick="clickBtnEach($('#select5'))">
-                                                変更
-                                            </button>
-                                        </td>
-                                    </tr>
+                                        <tr>
+                                            <td class="">ｵﾌﾟｼｮﾝ</td>
+                                            <td class="">
+                                                <select id="select5" class="form-control">
+                                                    <option value="0">なし</option>
+                                                    <option value="1">コスプレ</option>
+                                                    <option value="2">拘束具</option>
+                                                    <option value="3">甘やかす</option>
+                                                    <option value="4">挿入する道具</option>
+                                                    <option value="5">震える道具</option>
+                                                    <option value="6">薬</option>
+                                                    <option value="7">スリル</option>
+                                                    <option value="8">ニッチ・特殊性癖</option>
+                                                    <option value="9">開発</option>
+                                                    <option value="10">キス多め</option>
+                                                    <option value="11">教本やAV</option>
+                                                    <option value="12">我慢させる</option>
+                                                    <option value="13">身体変化（年齢操作など）</option>
+                                                    <option value="14">羞恥</option>
+                                                    <option value="15">舐める</option>
+                                                    <option value="16">痛み</option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <button class="btnChange btn btn-gray lsf-icon"
+                                                        title="random"
+                                                        onclick="clickBtnEach($('#select5'))">
+                                                    変更
+                                                </button>
+                                            </td>
+                                        </tr>
 
-                                    <tr>
-                                        <td class="">様子</td>
-                                        <td class="">
-                                            <select id="select6" class="form-control">
-                                                <option value="0">  おだやかに</option>
-                                                <option value="1">  激しく</option>
-                                                <option value="2">  一方的に</option>
-                                                <option value="3">  意地を張りつつ</option>
-                                                <option value="4">  甘々に</option>
-                                                <option value="5">  あっさりと</option>
-                                                <option value="6">  運動のように</option>
-                                                <option value="7">  明日に響くほど</option>
-                                                <option value="8">  必死に</option>
-                                                <option value="9">  遊ぶように</option>
-                                                <option value="10">  慈愛に満ちた様子で</option>
-                                                <option value="11">  雑談しながら</option>
-                                                <option value="12">  競うように</option>
-                                            </select>
-                                        </td>
-                                        <td>
-                                            <button class="addCopy btn btn-gray lsf-icon"
-                                                    title="random"
-                                                    onclick="clickBtnEach($('#select6'))">
-                                                変更
-                                            </button>
-                                        </td>
-                                    </tr>
+                                        <tr>
+                                            <td class="">様子</td>
+                                            <td class="">
+                                                <select id="select6" class="form-control">
+                                                    <option value="0">おだやかに</option>
+                                                    <option value="1">激しく</option>
+                                                    <option value="2">一方的に</option>
+                                                    <option value="3">意地を張りつつ</option>
+                                                    <option value="4">甘々に</option>
+                                                    <option value="5">あっさりと</option>
+                                                    <option value="6">運動のように</option>
+                                                    <option value="7">明日に響くほど</option>
+                                                    <option value="8">必死に</option>
+                                                    <option value="9">遊ぶように</option>
+                                                    <option value="10">慈愛に満ちた様子で</option>
+                                                    <option value="11">雑談しながら</option>
+                                                    <option value="12">競うように</option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <button class="btnChange btn btn-gray lsf-icon"
+                                                        title="random"
+                                                        onclick="clickBtnEach($('#select6'))">
+                                                    変更
+                                                </button>
+                                            </td>
+                                        </tr>
 
-                                    <tr>
-                                        <td class="">結果</td>
-                                        <td class="">
-                                            <select id="select7" class="form-control">
-                                                <option value="0">  両方スッキリした</option>
-                                                <option value="1">  次試したいことが増えた</option>
-                                                <option value="2">  片方が寝込んだ</option>
-                                                <option value="3">  邪魔が入ったがやり遂げた</option>
-                                                <option value="4">  一部失敗したがやり遂げた</option>
-                                                <option value="5">  学ぶことがあった</option>
-                                                <option value="6">  物足りなかった</option>
-                                                <option value="7">
-                                                    言うつもりのないことを口走った
-                                                </option>
-                                                <option value="8">  約束をした</option>
-                                            </select>
-                                        </td>
-                                        <td>
-                                            <button class="addCopy btn btn-gray lsf-icon"
-                                                    title="random"
-                                                    onclick="clickBtnEach($('#select7'))">
-                                                変更
-                                            </button>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                                        <tr>
+                                            <td class="">結果</td>
+                                            <td class="">
+                                                <select id="select7" class="form-control">
+                                                    <option value="0">両方スッキリした</option>
+                                                    <option value="1">次試したいことが増えた</option>
+                                                    <option value="2">片方が寝込んだ</option>
+                                                    <option value="3">邪魔が入ったがやり遂げた</option>
+                                                    <option value="4">一部失敗したがやり遂げた</option>
+                                                    <option value="5">学ぶことがあった</option>
+                                                    <option value="6">物足りなかった</option>
+                                                    <option value="7">心情を吐露した</option>
+                                                    <option value="8">約束をした</option>
+                                                    <option value="9">少し反省した</option>
+                                                    <option value="10">遠慮がなくなった</option>
+                                                    <option value="11">リベンジを誓った</option>
+                                                    <option value="12">心身に変化があった</option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <button class="btnChange btn btn-gray lsf-icon"
+                                                        title="random"
+                                                        onclick="clickBtnEach($('#select7'))">
+                                                    変更
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                         <div class="text-center">
-                            <button class="addCopy btn btn-info lsf-icon btn-lg"
-                                    title="ok">
+                            <button class="btnChange btn btn-info lsf-icon btn-lg"
+                                    title="ok"
+                                    onclick="clickEnter()">
                                 プロットを確定する
                             </button>
                         </div>
@@ -331,7 +329,8 @@
                     </div>
                     <hr />
                     <div class="txtArea">
-                        <h2 class="">「ランダムえちえちプロット」の使い方</h2>
+                        <h2 class="mb-3">「ランダムえちえちプロット」の使い方</h2>
+                        <p>ランダムに<b>えちえち</b>な短編プロットを作成するツールです。</p>
                         <p>
                             「ランダム一括変更」ボタンを押すと、全項目がランダムに変わります。<br />
                             「変更」ボタンを押すと、その行の項目がランダムに変わります。<br />
@@ -365,7 +364,7 @@
                     <ul class="shareList">
                         <li class="shareList__item">
                             <a class="shareList__link lsf-icon icon-twitter"
-                               onclick="clickBtnShareTagFirst('を使っています！','ランダムえちえちプロット')"
+                               onclick="clickBtnShareTagFirstParam('を使っています！','ランダムえちえちプロット')"
                                title="twitter"
                                href="#"></a>
                         </li>
