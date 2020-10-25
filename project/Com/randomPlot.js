@@ -159,11 +159,13 @@ function dispImage() {
 //シェアボタンクリック時
 function clickBtnShareCustom() {
 
+    //全選択肢文字を結合
     var result = $("#span1").html() + $("#span2").html() + $("#span3").html() +
         $("#span4").html() + $("#span5").html() + $("#span6").html() + $("#span7").html();
     var cutStr = '';
     var maxLength = 100;
 
+    //最大文字数で足切り
     if (result.length > maxLength) {
         cutStr = result.substr(0, maxLength) + '……'
     }
@@ -173,7 +175,21 @@ function clickBtnShareCustom() {
         + cutStr + "%0a"
         ;
 
-    clickBtnShareTagFirstParam(txt, 'ランダムえちえちプロット');
+    //結果画面ではなく、選択画面でシェアしたい
+
+    // URLとパラメータを分ける
+    var href = (location.href).replace("#", "").replace("randomEchiResult","randomEchiTool");
+    var param = location.search;
+    var url = href.replace(param, '');
+
+    // パラメータをエンコード
+    param = encodeURIComponent(param);
+
+    var strUrl = "http://twitter.com/share"
+        + "?url=" + url + param + "&text=" + "%23" + "ランダムえちえちプロット" + "%20" + txt + "%0a";
+    window.open(strUrl, '_blank');
+
+
 }
 
 function clickBtnBack() {
