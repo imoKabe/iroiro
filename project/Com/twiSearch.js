@@ -2,13 +2,13 @@
 $(function () {
   // クッキーから復元
   var words = $.cookie("words");
-  alert(words);
+  
   if (words != null ) {
     //配列化
     var wordsArray = words.split(",");
 
     // 履歴行最初以外削除
-    $("#history .hisRow:not(:eq(0))").remove();
+    $("#history .hisRow:not(:first)").remove();
 
     //行の数だけコピーして増やす
     for (var j = 0; j < wordsArray.length; j++) {
@@ -16,7 +16,7 @@ $(function () {
     }
 
     // テーブルの行を最初だけ削除
-    $("#history .hisRow").eq(0).remove();
+    $("#history .hisRow:first").remove();
   }
 });
 
