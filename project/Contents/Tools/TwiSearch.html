@@ -9,6 +9,7 @@
         gtag('js', new Date());
 
         gtag('config', 'UA-180136701-1');
+
     </script>
 
     <!-- Required meta tags -->
@@ -28,25 +29,41 @@
     <link rel="stylesheet" href="../../Com/shareStyle.css" />
     <!-- my CSS -->
     <link href="../../Com/css01.css" rel="stylesheet" />
-    <title>imoTools利用規約</title>
+    <title>ツイ検索して履歴も残すやつ</title>
+    <style>
+        .hisTxt{
+            width: 30%;
+            border: solid 1px #ddd;
+            display: inline-block;
+        }
+
+    </style>
 </head>
 <body>
     <nav class="navbar navbar-expand navbar-dark bg-info">
         <a class="navbar-brand lsf-icon" title="spanner" href="./index.html">imoTools</a>
 
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="ナビゲーションの切替">
+        <button class="navbar-toggler"
+                type="button"
+                data-toggle="collapse"
+                data-target="#navbar"
+                aria-controls="navbar"
+                aria-expanded="false"
+                aria-label="ナビゲーションの切替">
             <span class="navbar-toggler-icon"></span>
         </button>
 
         <div class=".collapse.show" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link lsf-icon active" title="info" href="./imoToolUsage.html">利用規約</a>
+                <li class="nav-item">
+                    <a class="nav-link lsf-icon" title="info" href="./imoToolUsage.html">利用規約</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle lsf-icon" title="app" href="#" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">ツール</a>
-                    <div class="dropdown-menu" aria-labelledby="dropdown">
-                        <a class="dropdown-item" href="./nombreTool.html">ページ数からノンブル分かるやつ</a>
+                    <a class="nav-link dropdown-toggle active lsf-icon" title="app" href="#" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">ツール</a>
+                    <div class="dropdown-menu"
+                         aria-labelledby="dropdown"
+                         style="z-index: 1030 !important">
+                        <a class="dropdown-item active" href="./nombreTool.html">ページ数からノンブル分かるやつ</a>
                         <a class="dropdown-item " href="./torisetuTool.html">匿名箱のトリセツジェネレーター</a>
                         <a class="dropdown-item" href="./randomEchiTool.html">ランダムえちえちプロット</a>
                         <a class="dropdown-item" href="./TwiSearch.html">ツイ検索して履歴も残すやつ</a>
@@ -63,38 +80,73 @@
     <article>
         <div class="container">
             <div class="row">
-                <div class="txtArea">
-                    <h2 class="">利用規約</h2>
+                <div class="">
+                    <div class="">
+                        
 
-                    <p>
-                        <div class="" style="background-color:#f5f5f5; padding:0.5em;">
-                            【まとめ】<br />
-                            常識の範囲内の使用は完全フリーです。シェア・使ったよ報告があると嬉しいです。
+                        <input type="search" id="txtSearch" placeholder="" value="" />
+                        <button id="btnSearch">検索</button>
+                        <br /><br />
+
+                        <div id="history">
+                            <div class="hisRow">
+                                <div class="hisTxt">1</div>
+                                <button class="btnDel btn btn-gray lsf-icon" title="">削除</button>
+                            </div>
+                            <div class="hisRow">
+                                <div class="hisTxt">2</div>
+                                <button class="btnDel btn btn-gray lsf-icon" title="">削除</button>
+                            </div>
                         </div>
-                    </p>
-                    <p>
-                        【詳細】<br />
-                        当サイトの自作ツールは、個人の趣味で開発・公開しているツールです。企業のような対応や補償はできません。<br />
-                        ツールを使用した作品・活動のいかなるトラブルにおいて、開発者は責任を負いません。自己責任でどうぞ。<br />
-                        自作発言やソースをまるまるコピーしての二次配布的なことはNGです。<br />
-                        <br />
-                        ツール使用の対象・用途は「犯罪や誰かが悲しむものでなければOK」です。<br />
-                        <br />
 
-                        ・二次創作や無料公開作品、利益が出なかった商用・オリジナル同人作品での利用<br />
-                        &nbsp;&nbsp;&nbsp;→ツールのURLや作者名の表示義務はありませんが、シェアしていただけると嬉しいです。<br />
-                        ・利益が出た商用・オリジナル同人作品での利用<br />
-                        &nbsp;&nbsp;&nbsp;→ツールのURLや作者名の表示義務はありませんが、シェアしていただけると嬉しいです。あと分け前をください。
+                        <table id="tblHistory" class="table">
+                            <tr>
+                                <td><button id="btnMin10" class=" btn btn-gray lsf-icon" title="add">最低10</button></td>
+                                <td>説明</td>
+                            </tr>
+                            <tr>
+                                <td><button id="btnFollow" class=" btn btn-gray lsf-icon" title="add">F条件</button></td>
+                                <td>説明</td>
+                            </tr>
+                        </table>
+
+                        <button id="btnSave"
+                                class="btn btn-secondary lsf-icon"
+                                title="time"
+                                onclick="saveCookie()">
+                            しばらく保存する
+                        </button><br />
+                        <span class="text-muted small">※ブラウザのCookieにデータを保存し、次回アクセス時に復元できるようにします（後述）</span>
+                        <br />
+                        <br />
+                
+                    </div>
+                    <hr />
+                    <div class="txtArea">
+                        <h2 class="mb-3">「」の使い方</h2>
+                        <p>
+                           
+                        </p>
+
+                        <img src="./gamen.png" width="300px" />
+                        <br />
+                        <br />
+                        <h4 class="">Cookieについて</h4>
+                        Cookieとは、閲覧者のブラウザにログイン情報などのテキストデータを保存する機能で、多くのウェブサイトに使われています。<br />
+                        当ページでは、同ブラウザによる前回の入力情報の復元にのみ使用しています。有効期限は約半年です。<br />
+                        基本的には、画面のリフレッシュ時に前回「保存する」ボタンを押したときの状態を復元します。<br />
+                        Cookieの有効期限切れ、あるいはブラウザでのCookieクリアなどにより復元できなくなる場合があるので、
+                        確定した情報の保存・共有はスクリーンショットでの画像形式をおすすめします。
+                        <br /><br />
+                        <h4 class="">利用規約</h4>
+                        常識の範囲内の使用は完全フリーですが、シェア＆使ったよ報告していただけると嬉しいです。<br />
+                        詳しい利用規約は<a href="./imoToolUsage.html">こちら</a>。<br />
                         <br />
                         <a href="https://giftee.co/u/kabekabe"
                            class="btn btn-outline-info mt-1"
                            target="_blank">開発者にコーヒーをおごる</a>
                         <span class="text-muted small">（gifteeへのリンクです）</span>
-                    </p>
-                    <p>
-                        ツールそのものをどうにかしたい場合や、有償での作成依頼などは開発者までどうぞ。<br />
-                    </p>
-
+                    </div>
                 </div>
             </div>
         </div>
@@ -111,7 +163,7 @@
                     <ul class="shareList">
                         <li class="shareList__item">
                             <a class="shareList__link lsf-icon icon-twitter"
-                               onclick="clickBtnShare()"
+                               onclick="clickBtnShareTagFirst('を使っています','ページ数からノンブル分かるやつ')"
                                title="twitter"
                                href="#"></a>
                         </li>
@@ -166,7 +218,16 @@
     </footer>
 
     <!-- Optional JavaScript -->
+    <!-- いらないなら、jQueryフォルダも消していい -->
     <script src="../../Com/jQuery/jquery-3.5.0.min.js"></script>
+
+    <!--
+      <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script> -->
+
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
             integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
@@ -174,8 +235,12 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
             integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
             crossorigin="anonymous"></script>
+    <!-- スマホ対応 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
+    <!-- Cookie -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
     <!-- my js -->
     <script type="text/javascript" src="../../Com/com.js"></script>
-    <script type="text/javascript" src="../../Com/nombre.js"></script>
+    <script type="text/javascript" src="../../Com/twiSearch.js"></script>
 </body>
 </html>
