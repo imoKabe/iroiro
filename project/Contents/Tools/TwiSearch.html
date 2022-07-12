@@ -31,10 +31,20 @@
     <link href="../../Com/css01.css" rel="stylesheet" />
     <title>ツイ検索して履歴も残すやつ</title>
     <style>
+        #history{
+            width:100%;
+        }
         .hisTxt{
-            width: 30%;
+            vertical-align: middle;
+             /*
             border: solid 1px #ddd;
-            display: inline-block;
+            display: inline-block; */
+     
+
+        }
+        .hisTxt:hover{
+            cursor: pointer;
+            background-color: #eee;
         }
 
     </style>
@@ -85,38 +95,183 @@
                         <div class="alert alert-warning" role="alert">
                             開発中！偶然見てしまった方はスルーしてください。
                         </div>
-
-                        <input type="search" id="txtSearch" placeholder="" value="" />
-                        <button id="btnSearch">検索</button>
-                        <br /><br />
-
-                        <div id="history">
-                            <div class="hisRow">
-                                <div class="hisTxt">1</div>
-                                <button class="btnDel btn btn-gray lsf-icon" title="">削除</button>
-                            </div>
-                            <div class="hisRow">
-                                <div class="hisTxt">2</div>
-                                <button class="btnDel btn btn-gray lsf-icon" title="">削除</button>
+                  
+                        <div class="input-group sticky-top ">
+                            <input type="search" id="txtSearch" class="form-control" placeholder="ツイッター検索ワード" value="" />
+                            <div class="input-group-append">
+                                <button id="btnSearch" class=" btn btn-gray lsf-icon" title="search">検索</button>
                             </div>
                         </div>
+                        <div class="small text-secondary">
+                            ※コマンドだけでは検索できません。検索ワードと一緒に検索しましょう。　例：「filter:follows」（検索不可）→「イラスト filter:follows」（検索可能）
+                        </div>
+                       <br />
 
-                        <table id="tblHistory" class="table">
-                            <tr>
-                                <td><button id="btnMin10" class=" btn btn-gray lsf-icon" title="add">最低10</button></td>
-                                <td>説明</td>
+
+                        検索履歴<span class="small text-secondary">（タップで選択）</span>
+                        <table id="history" class="table">
+                            <tr class="hisRow">
+                                <td class="hisTxt">1</td>
+                                <td>
+                                    <button class="btnDel btn btn-gray lsf-icon" title="">削除</button>
+                                </td>
                             </tr>
-                            <tr>
-                                <td><button id="btnFollow" class=" btn btn-gray lsf-icon" title="add">F条件</button></td>
-                                <td>説明</td>
+                            <tr class="hisRow">
+                                <td class="hisTxt">2</td>
+                                <td>
+                                    <button class="btnDel btn btn-gray lsf-icon" title="">削除</button>
+                                </td>
                             </tr>
                         </table>
+
+                        <br />
+
+                        検索コマンド
+                        <ul class="nav nav-tabs">
+                            <li class="nav-item">
+                              <a href="#img1" class="nav-link active" data-toggle="tab">種類</a><!-- .nav-link -->
+                            </li><!-- .nav-item -->
+                            <li class="nav-item">
+                              <a href="#img2" class="nav-link" data-toggle="tab">数・期間</a><!-- .nav-link -->
+                            </li><!-- .nav-item -->
+                            <li class="nav-item">
+                              <a href="#img3" class="nav-link" data-toggle="tab">記号・その他</a><!-- .nav-link -->
+                            </li><!-- .nav-item -->
+                          </ul><!-- .nav nav-tabs -->
+                          <div class="tab-content">
+                            <div id="img1" class="tab-pane active">
+                                <table id="" class="table tblHistory">
+                                    <tr>
+                                        <td>
+                                            <button id="" class=" btn btn-gray lsf-icon" title="add" onclick="copy(' filter:images')">
+                                                画像
+                                            </button>
+                                        </td>
+                                        <td>filter:images</td>
+                                        <td>画像が含まれたツイートのみ</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <button id="" class=" btn btn-gray lsf-icon" title="add" onclick="copy(' filter:media')">
+                                                画像か動画
+                                            </button>
+                                        </td>
+                                        <td>filter:media</td>
+                                        <td>画像か動画が含まれたツイートのみ</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <button id="" class=" btn btn-gray lsf-icon" title="add" onclick="copy(' filter:follows')">
+                                                フォロー中
+                                            </button>
+                                        </td>
+                                        <td>filter:follows</td>
+                                        <td>フォロー中のユーザーのみ</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <button id="" class=" btn btn-gray lsf-icon" title="add" onclick="copy(' filter:verified')">
+                                                認証済み
+                                            </button>
+                                        </td>
+                                        <td>filter:verified</td>
+                                        <td>認証済みユーザーのみ</td>
+                                    </tr>
+                                </table>
+                            </div><!-- .tab-pane -->
+                            <div id="img2" class="tab-pane">
+                                <table id="" class="table tblHistory">
+                                    <tr>
+                                        <td>
+                                            <button id="" class=" btn btn-gray lsf-icon" title="add" onclick="copy(' min_faves:10')">
+                                                いいね10以上
+                                            </button>
+                                        </td>
+                                        <td>min_faves:10</td>
+                                        <td>10以上いいねされたツイートのみ<span class="small text-secondary">（任意の数字に変更しましょう）</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <button id="" class=" btn btn-gray lsf-icon" title="add" onclick="copy(' min_retweets:10')">
+                                                RT10以上
+                                            </button>
+                                        </td>
+                                        <td>min_retweets:10</td>
+                                        <td>
+                                            10以上リツイートされたツイートのみ
+                                            <span class="small text-secondary">（任意の数字に変更しましょう）</span>
+                                            </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <button id="" class=" btn btn-gray lsf-icon" title="add" onclick="copy(' since:yyyy-mm-dd')">
+                                                日付以降
+                                            </button>
+                                        </td>
+                                        <td>since:yyyy-mm-dd</td>
+                                        <td>yyyy年mm月dd日以降のツイートのみ
+                                            <span class="small text-secondary">（任意の日付に変更しましょう）
+                                            <br />
+                                            例：2022年2月22日以降ならsince:2022-02-22</span></td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>
+                                            <button id="" class=" btn btn-gray lsf-icon" title="add" onclick="copy(' until:yyyy-mm-dd')">
+                                                日付まで
+                                            </button>
+                                        </td>
+                                        <td>until:yyyy-mm-dd</td>
+                                        <td>yyyy年mm月dd日までのツイートのみ
+                                            <span class="small text-secondary">（任意の日付に変更しましょう）
+                                            <br />
+                                            例：2022年2月22日までならuntil:2022-02-22</span></td>
+                                    </tr>
+                                </table>
+                            </div><!-- .tab-pane -->
+                            <div id="img3" class="tab-pane">
+                                <table id="" class="table tblHistory">
+                                    <tr>
+                                        <td>
+                                            <button id="" class=" btn btn-gray lsf-icon" title="add" onclick="copy(' from:@')">
+                                                FROMユーザー
+                                            </button>
+                                        </td>
+                                        <td>from:@ユーザーID</td>
+                                        <td>
+                                            @ユーザーID投稿のツイートのみ
+                                            <span class="small text-secondary">（任意のIDに変更しましょう）</span>
+                                            </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <button id="" class=" btn btn-gray lsf-icon" title="add" onclick="copy(' to:@')">
+                                                TOユーザー
+                                            </button>
+                                        </td>
+                                        <td>to:@ユーザーID</td>
+                                        <td>
+                                            @ユーザーIDあてのツイートのみ
+                                            <span class="small text-secondary">（任意のIDに変更しましょう）</span>
+                                            </td>
+                                    </tr>
+                                </table>
+                            </div><!-- .tab-pane -->
+                          </div><!-- .tab-content -->
+
+                        <br /><br /><br />
 
                         <button id="btnSave"
                                 class="btn btn-secondary lsf-icon"
                                 title="time"
                                 onclick="saveCookie()">
                             しばらく保存する
+                        </button><br />
+                        <button id="btnHukkatu"
+                                class="btn btn-secondary lsf-icon"
+                                title="time"
+                                onclick="returnCookie()">
+                            テストCookie復帰
                         </button><br />
                         <span class="text-muted small">※ブラウザのCookieにデータを保存し、次回アクセス時に復元できるようにします（後述）</span>
                         <br />
@@ -125,7 +280,7 @@
                     </div>
                     <hr />
                     <div class="txtArea">
-                        <h2 class="mb-3">「」の使い方</h2>
+                        <h2 class="mb-3">「ツイ検索して履歴も残すやつ」の使い方</h2>
                         <p>
                            
                         </p>
