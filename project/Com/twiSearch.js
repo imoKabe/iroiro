@@ -1,31 +1,38 @@
 // 初期表示時
 $(function () {
   // クッキーから復元
+  returnCookie();
+});
+
+// Cookieから復帰
+function returnCookie() {
   var words = $.cookie("words");
-  
-  if (words != null ) {
+  //テスト用にかきかえ
+  //var words = "あ,いん,うえ,おお";
+
+  if ((words == null)) {
     //配列化
     var wordsArray = words.split(",");
-
     // 履歴行最初以外削除
     $("#history .hisRow:not(:first)").remove();
 
     //行の数だけコピーして増やす
     for (var j = 0; j < wordsArray.length; j++) {
-      addRow(wordsArray[j] );
+      addRow(wordsArray[j]);
     }
-
     // テーブルの行を最初だけ削除
     $("#history .hisRow:first").remove();
   }
-});
+}
 
 /* 最後に行を追加 */
 function addRow(word) {
-  $("#history .hisRow:last").clone(true).appendTo("#history .hisRow:last");
+  $("#history .hisRow:last").clone(true).appendTo("#history");
   var lastRow = $("#history .hisRow:last:last");
   // 指定があれば上書き
-  if (word != "") {    lastRow.find(".hisTxt").text(word);}
+  if (word != "") {
+    lastRow.find(".hisTxt").text(word);
+  }
 }
 
 // 検索時
@@ -62,6 +69,7 @@ $("#btnSearch").click(function () {
 
   //TODO cookie search
   saveCookie();
+  twiSearch();
 });
 
 //履歴クリック時
@@ -89,17 +97,7 @@ $(".btnDel").click(function () {
   saveCookie();
 });
 
-//転記ボタン
-//最低10
-$("#btnMin10").click(function () {
-  copy(" min_faves:10");
-});
-//F条件
-$("#btnFollow").click(function () {
-  copy(" filter:follows");
-});
-
-//Copy
+//転記
 function copy(txt) {
   var get = String($("#txtSearch").val());
   $("#txtSearch").val(get + txt);
@@ -110,10 +108,16 @@ function saveCookie() {
   //テキストを取得
   var words = $("#txtSearch").val() + ",";
   var hisTxts = $("#history .hisRow .hisTxt");
+
   hisTxts.each(function (index, elem) {
     words = words + $(elem).text() + ",";
   });
 
   $.cookie("words", words, { expires: 180 });
-    alert(words);
+}
+//検索
+function twiSearch() {
+  var word =encodeURI(String($("#txtSearch").val()));
+  var url = "https://twitter.com/search?q=" + word;
+  window.open(url);
 }
