@@ -8,9 +8,9 @@ $(function () {
 function returnCookie() {
   var words = $.cookie("words");
   //テスト用にかきかえ
-  //var words = "あ,いん,うえ,おお";
+   //words = "あ,いん,うえ,おお";
 
-  if ((words == null)) {
+  if (words != null) {
     //配列化
     var wordsArray = words.split(",");
     // 履歴行最初以外削除
@@ -54,7 +54,8 @@ $("#btnSearch").click(function () {
     //被り列は一番上に
     $("#history .hisRow").eq(kaburi).insertBefore($("#history .hisRow").eq(0));
 
-    //TODO 検索
+    //検索
+    twiSearch()
     return;
   }
   //履歴被りなし、通常検索＝＝＝＝＝＝＝＝＝＝
@@ -91,7 +92,7 @@ $(".btnDel").click(function () {
     alert("最後の行です。これ以上は削除できません。");
     return;
   }
-  $(this).parent().remove();
+  $(this).parent().parent().remove();
 
   //Cookie
   saveCookie();
@@ -117,7 +118,7 @@ function saveCookie() {
 }
 //検索
 function twiSearch() {
-  var word =encodeURI(String($("#txtSearch").val()));
+  var word =encodeURIComponent(String($("#txtSearch").val()));
   var url = "https://twitter.com/search?q=" + word;
   window.open(url);
 }
