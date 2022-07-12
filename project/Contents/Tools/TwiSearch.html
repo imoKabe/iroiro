@@ -90,8 +90,7 @@
     <article>
         <div class="container">
             <div class="row">
-                <div class="">
-                    <div class="">
+                    <div class="pl-1 col-12">
                         <div class="alert alert-warning" role="alert">
                             開発中！偶然見てしまった方はスルーしてください。
                         </div>
@@ -102,80 +101,84 @@
                                 <button id="btnSearch" class=" btn btn-gray lsf-icon" title="search">検索</button>
                             </div>
                         </div>
-                        <div class="small text-secondary">
-                            ※コマンドだけでは検索できません。検索ワードと一緒に検索しましょう。　例：「filter:follows」（検索不可）→「イラスト filter:follows」（検索可能）
-                        </div>
                        <br />
-
 
                         検索履歴<span class="small text-secondary">（タップで選択）</span>
                         <table id="history" class="table">
                             <tr class="hisRow">
-                                <td class="hisTxt">1</td>
+                                <td class="hisTxt">from:@onote_etc min_faves:10</td>
                                 <td>
                                     <button class="btnDel btn btn-gray lsf-icon" title="">削除</button>
                                 </td>
                             </tr>
                             <tr class="hisRow">
-                                <td class="hisTxt">2</td>
+                                <td class="hisTxt">@onote_etc "記事" OR "note" OR "講座"</td>
                                 <td>
                                     <button class="btnDel btn btn-gray lsf-icon" title="">削除</button>
                                 </td>
                             </tr>
                         </table>
 
-                        <br />
-
                         検索コマンド
+                        <span class="small text-secondary">
+                            ※コマンドだけでは検索できません。検索ワードと一緒に検索しましょう。　
+                        </span>
                         <ul class="nav nav-tabs">
                             <li class="nav-item">
-                              <a href="#img1" class="nav-link active" data-toggle="tab">種類</a><!-- .nav-link -->
+                              <a href="#img1" class="nav-link active" data-toggle="tab">基本</a><!-- .nav-link -->
                             </li><!-- .nav-item -->
                             <li class="nav-item">
                               <a href="#img2" class="nav-link" data-toggle="tab">数・期間</a><!-- .nav-link -->
                             </li><!-- .nav-item -->
                             <li class="nav-item">
-                              <a href="#img3" class="nav-link" data-toggle="tab">記号・その他</a><!-- .nav-link -->
+                              <a href="#img3" class="nav-link" data-toggle="tab">種類</a><!-- .nav-link -->
+                            </li><!-- .nav-item -->
+                            <li class="nav-item">
+                              <a href="#img4" class="nav-link" data-toggle="tab">その他</a><!-- .nav-link -->
                             </li><!-- .nav-item -->
                           </ul><!-- .nav nav-tabs -->
                           <div class="tab-content">
-                            <div id="img1" class="tab-pane active">
+                            <div id="img3" class="tab-pane active">
                                 <table id="" class="table tblHistory">
                                     <tr>
                                         <td>
                                             <button id="" class=" btn btn-gray lsf-icon" title="add" onclick="copy(' filter:images')">
                                                 画像
-                                            </button>
+                                            </button><br />filter:images
                                         </td>
-                                        <td>filter:images</td>
                                         <td>画像が含まれたツイートのみ</td>
                                     </tr>
                                     <tr>
                                         <td>
                                             <button id="" class=" btn btn-gray lsf-icon" title="add" onclick="copy(' filter:media')">
                                                 画像か動画
-                                            </button>
+                                            </button><br />
+                                            filter:media
                                         </td>
-                                        <td>filter:media</td>
                                         <td>画像か動画が含まれたツイートのみ</td>
                                     </tr>
                                     <tr>
                                         <td>
                                             <button id="" class=" btn btn-gray lsf-icon" title="add" onclick="copy(' filter:follows')">
                                                 フォロー中
-                                            </button>
+                                            </button><br />
+                                            filter:follows
                                         </td>
-                                        <td>filter:follows</td>
                                         <td>フォロー中のユーザーのみ</td>
                                     </tr>
                                     <tr>
                                         <td>
                                             <button id="" class=" btn btn-gray lsf-icon" title="add" onclick="copy(' filter:verified')">
                                                 認証済み
-                                            </button>
-                                        </td>
-                                        <td>filter:verified</td>
+                                            </button><br />filter:verified</td>
                                         <td>認証済みユーザーのみ</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <button id="" class=" btn btn-gray lsf-icon" title="add" onclick="copy(' lang：ja')">
+                                                日本語
+                                            </button><br />lang：ja</td>
+                                        <td>日本語のみ検索</td>
                                     </tr>
                                 </table>
                             </div><!-- .tab-pane -->
@@ -184,19 +187,15 @@
                                     <tr>
                                         <td>
                                             <button id="" class=" btn btn-gray lsf-icon" title="add" onclick="copy(' min_faves:10')">
-                                                いいね10以上
-                                            </button>
-                                        </td>
-                                        <td>min_faves:10</td>
+                                                10♡以上
+                                            </button><br />min_faves:10</td>
                                         <td>10以上いいねされたツイートのみ<span class="small text-secondary">（任意の数字に変更しましょう）</span></td>
                                     </tr>
                                     <tr>
                                         <td>
                                             <button id="" class=" btn btn-gray lsf-icon" title="add" onclick="copy(' min_retweets:10')">
-                                                RT10以上
-                                            </button>
-                                        </td>
-                                        <td>min_retweets:10</td>
+                                                10RT以上
+                                            </button><br />min_retweets:10</td>
                                         <td>
                                             10以上リツイートされたツイートのみ
                                             <span class="small text-secondary">（任意の数字に変更しましょう）</span>
@@ -206,9 +205,7 @@
                                         <td>
                                             <button id="" class=" btn btn-gray lsf-icon" title="add" onclick="copy(' since:yyyy-mm-dd')">
                                                 日付以降
-                                            </button>
-                                        </td>
-                                        <td>since:yyyy-mm-dd</td>
+                                            </button><br />since:yyyy-mm-dd</td>
                                         <td>yyyy年mm月dd日以降のツイートのみ
                                             <span class="small text-secondary">（任意の日付に変更しましょう）
                                             <br />
@@ -219,9 +216,7 @@
                                         <td>
                                             <button id="" class=" btn btn-gray lsf-icon" title="add" onclick="copy(' until:yyyy-mm-dd')">
                                                 日付まで
-                                            </button>
-                                        </td>
-                                        <td>until:yyyy-mm-dd</td>
+                                            </button><br />until:yyyy-mm-dd</td>
                                         <td>yyyy年mm月dd日までのツイートのみ
                                             <span class="small text-secondary">（任意の日付に変更しましょう）
                                             <br />
@@ -229,17 +224,46 @@
                                     </tr>
                                 </table>
                             </div><!-- .tab-pane -->
-                            <div id="img3" class="tab-pane">
+                            <div id="img1" class="tab-pane">
                                 <table id="" class="table tblHistory">
+                                    <tr>
+                                        <td>
+                                            <button id="" class=" btn btn-gray lsf-icon" title="add" onclick="copy(' &quot;&quot;')">
+                                                完全一致
+                                            </button><br />"完全一致検索ワード"</td>
+                                        <td>
+                                            ””の中の語句を完全一致で検索する
+                                            <span class="small text-secondary">例：「"定期"」</span>
+                                            </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <button id="" class=" btn btn-gray lsf-icon" title="add" onclick="copy(' -&quot;&quot;')">
+                                                除外
+                                            </button><br />-"除外ワード"</td>
+                                        <td>
+                                            ””の中の語句を除外する
+                                            <span class="small text-secondary">例：「-"定期"」<br />
+                                                （-filter:repliesでリプライを除外など、引用符なしでフィルターの除外も可能）</span>
+                                            </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <button id="" class=" btn btn-gray lsf-icon" title="add" onclick="copy(' &quot;&quot; OR &quot;&quot;')">
+                                                どちらか
+                                            </button><br />"ワード１" OR "ワード２"</td>
+                                        <td>
+                                            ””の中の語句どちらかを含む
+                                            <span class="small text-secondary">例：「"スマホ" OR "携帯電話"」<br /></span>
+                                            </td>
+                                    </tr>
                                     <tr>
                                         <td>
                                             <button id="" class=" btn btn-gray lsf-icon" title="add" onclick="copy(' from:@')">
                                                 FROMユーザー
-                                            </button>
-                                        </td>
-                                        <td>from:@ユーザーID</td>
+                                            </button><br />from:@ユーザーID</td>
                                         <td>
-                                            @ユーザーID投稿のツイートのみ
+                                            @ユーザーIDから投稿のツイートのみ
                                             <span class="small text-secondary">（任意のIDに変更しましょう）</span>
                                             </td>
                                     </tr>
@@ -247,12 +271,54 @@
                                         <td>
                                             <button id="" class=" btn btn-gray lsf-icon" title="add" onclick="copy(' to:@')">
                                                 TOユーザー
-                                            </button>
-                                        </td>
-                                        <td>to:@ユーザーID</td>
+                                            </button><br />to:@ユーザーID</td>
                                         <td>
                                             @ユーザーIDあてのツイートのみ
                                             <span class="small text-secondary">（任意のIDに変更しましょう）</span>
+                                            </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <button id="" class=" btn btn-gray lsf-icon" title="add" onclick="copy(' #')">
+                                                タグ
+                                            </button><br />#ハッシュタグ</td>
+                                        <td>
+                                            ハッシュタグで検索する
+                                            <span class="small text-secondary">例：「#定期」</span>
+                                            </td>
+                                    </tr>
+                                </table>
+                            </div><!-- .tab-pane -->
+                            <div id="img4" class="tab-pane">
+                                <table id="" class="table tblHistory">
+                                    <tr>
+                                        <td>
+                                            <button id="" class=" btn btn-gray lsf-icon" title="add" onclick="copy(' &quot;&quot; OR @twitter_no_use')">
+                                                名前除外
+                                            </button><br />"検索語句" OR @存在しないユーザーID</td>
+                                        <td>
+                                            ユーザー名を検索対象とせず、ツイート本文のみの検索結果を表示します。
+                                            <span class="small text-secondary">（@以降は存在しないIDならなんでもOKです）</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <button id="" class=" btn btn-gray lsf-icon" title="add" onclick="copy(' &quot;&quot; -from:@')">
+                                                エゴサ
+                                            </button><br />"ユーザー名" -from:@ユーザー名のID</td>
+                                        <td>
+                                            「ユーザー名のID」発信ツイートを除外し、「ユーザー名」を含むツイートを検索
+                                            <span class="small text-secondary"></span>
+                                            </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <button id="" class=" btn btn-gray lsf-icon" title="add" onclick="copy(' | 【pixivユーザー名】 #pixiv')">
+                                                pixivエゴサ
+                                            </button><br /> | 【pixivユーザー名】 #pixiv</td>
+                                        <td>
+                                            pixivの共有機能からシェアされたツイートを検索
+                                            <span class="small text-secondary">（【pixivユーザー名】を検索したいユーザー名に置き換えましょう）</span>
                                             </td>
                                     </tr>
                                 </table>
@@ -282,18 +348,21 @@
                     <div class="txtArea">
                         <h2 class="mb-3">「ツイ検索して履歴も残すやつ」の使い方</h2>
                         <p>
-                           
+                           検索ワードを入力して「検索」ボタンを押すと、ツイッター検索ができます。<br />
+                           検索履歴が最大10個までCookieに保存されます。
+                           検索履歴をタップすると上部の検索窓にテキストがコピーされ、該当の履歴が最上位に移動します。<br />
+                           検索コマンドの各ボタンを押すと、検索窓に該当のコマンドが追加されます。
+
                         </p>
 
-                        <img src="./gamen.png" width="300px" />
+                        <img src="./.png" width="300px" />
                         <br />
                         <br />
                         <h4 class="">Cookieについて</h4>
                         Cookieとは、閲覧者のブラウザにログイン情報などのテキストデータを保存する機能で、多くのウェブサイトに使われています。<br />
                         当ページでは、同ブラウザによる前回の入力情報の復元にのみ使用しています。有効期限は約半年です。<br />
-                        基本的には、画面のリフレッシュ時に前回「保存する」ボタンを押したときの状態を復元します。<br />
-                        Cookieの有効期限切れ、あるいはブラウザでのCookieクリアなどにより復元できなくなる場合があるので、
-                        確定した情報の保存・共有はスクリーンショットでの画像形式をおすすめします。
+                        基本的には、画面のリフレッシュ時に前回検索したときの状態を復元します。<br />
+                        
                         <br /><br />
                         <h4 class="">利用規約</h4>
                         常識の範囲内の使用は完全フリーですが、シェア＆使ったよ報告していただけると嬉しいです。<br />
@@ -304,7 +373,6 @@
                            target="_blank">開発者にコーヒーをおごる</a>
                         <span class="text-muted small">（gifteeへのリンクです）</span>
                     </div>
-                </div>
             </div>
         </div>
     </article>
