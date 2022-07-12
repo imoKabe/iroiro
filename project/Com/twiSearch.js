@@ -8,7 +8,7 @@ $(function () {
 function returnCookie() {
   var words = $.cookie("words");
   //テスト用にかきかえ
-   //words = "あ,いん,うえ,おお";
+  // words = " filter:images,from:@onote_etc min_faves:10,@onote_etc \"記事\" OR \"note\" OR \"講座\"";
 
   if (words != null) {
     //配列化
@@ -20,7 +20,6 @@ function returnCookie() {
     for (var j = 0; j < wordsArray.length; j++) {
       addRow(wordsArray[j]);
     }
-    alert('test');
     // テーブルの行を最初だけ削除
     $("#history .hisRow:first").remove();
   }
@@ -116,8 +115,8 @@ function saveCookie() {
     words = words + $(elem).text() + ",";
   });
 
-  alert(words);
-
+  //最後の「,」を削除
+  words = words.slice(0,-1);
   $.cookie("words", words, { expires: 180 });
 }
 //検索
