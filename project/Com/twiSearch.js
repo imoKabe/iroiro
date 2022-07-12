@@ -28,7 +28,7 @@ function returnCookie() {
 /* 最後に行を追加 */
 function addRow(word) {
   $("#history .hisRow:last").clone(true).appendTo("#history");
-  var lastRow = $("#history .hisRow:last:last");
+  var lastRow = $("#history .hisRow:last");
   // 指定があれば上書き
   if (word != "") {
     lastRow.find(".hisTxt").text(word);
@@ -68,7 +68,7 @@ $("#btnSearch").click(function () {
     $("#history .hisRow:last").remove();
   }
 
-  //TODO cookie search
+  //cookie search
   saveCookie();
   twiSearch();
 });
@@ -107,7 +107,7 @@ function copy(txt) {
 //Cookieに保存
 function saveCookie() {
   //テキストを取得
-  var words = $("#txtSearch").val() + ",";
+  var words = "";
   var hisTxts = $("#history .hisRow .hisTxt");
 
   hisTxts.each(function (index, elem) {
