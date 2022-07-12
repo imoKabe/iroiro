@@ -20,6 +20,7 @@ function returnCookie() {
     for (var j = 0; j < wordsArray.length; j++) {
       addRow(wordsArray[j]);
     }
+    alert('test');
     // テーブルの行を最初だけ削除
     $("#history .hisRow:first").remove();
   }
@@ -55,6 +56,7 @@ $("#btnSearch").click(function () {
     $("#history .hisRow").eq(kaburi).insertBefore($("#history .hisRow").eq(0));
 
     //検索
+    saveCookie();
     twiSearch()
     return;
   }
@@ -82,7 +84,7 @@ $(".hisRow .hisTxt").click(function () {
   //検索テキスト上書き
   $("#txtSearch").val($(this).text());
 
-  //TODO cookie search
+  //cookie
   saveCookie();
 });
 
@@ -113,6 +115,8 @@ function saveCookie() {
   hisTxts.each(function (index, elem) {
     words = words + $(elem).text() + ",";
   });
+
+  alert(words);
 
   $.cookie("words", words, { expires: 180 });
 }
