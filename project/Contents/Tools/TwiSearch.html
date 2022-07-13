@@ -29,7 +29,7 @@
     <link rel="stylesheet" href="../../Com/shareStyle.css" />
     <!-- my CSS -->
     <link href="../../Com/css01.css" rel="stylesheet" />
-    <title>ツイ検索して履歴も残すやつ</title>
+    <title>コマンド検索して履歴も残すやつ</title>
     <style>
         .tblCommand td{
             vertical-align: middle;
@@ -107,7 +107,7 @@
             <div class="row">
                     <div class="pl-3 col-12">
                         
-                        <h4 class="mb-3 mt-3">Twitterでコマンド検索して履歴も残すやつ</h4>
+                        <h4 class="mb-3 mt-3">コマンド検索して履歴も残すやつ</h4>
 
                         <div class="input-group sticky-top ">
                             <input type="search" id="txtSearch" class="form-control" placeholder="ツイッター検索ワード" />
@@ -155,93 +155,6 @@
                             </li><!-- .nav-item -->
                           </ul><!-- .nav nav-tabs -->
                           <div class="tab-content">
-                            <div id="img3" class="tab-pane active">
-                                <table id="" class="table tblCommand">
-                                    <tr>
-                                        <td>
-                                            <button id="" class=" btn btn-gray lsf-icon" title="add" onclick="copy(' filter:images')">
-                                                画像
-                                            </button><br />filter:images
-                                        </td>
-                                        <td>画像が含まれたツイートのみ</td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <button id="" class=" btn btn-gray lsf-icon" title="add" onclick="copy(' filter:media')">
-                                                画像か動画
-                                            </button><br />
-                                            filter:media
-                                        </td>
-                                        <td>画像か動画が含まれたツイートのみ</td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <button id="" class=" btn btn-gray lsf-icon" title="add" onclick="copy(' filter:follows')">
-                                                フォロー中
-                                            </button><br />
-                                            filter:follows
-                                        </td>
-                                        <td>フォロー中のユーザーのみ</td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <button id="" class=" btn btn-gray lsf-icon" title="add" onclick="copy(' filter:verified')">
-                                                認証済み
-                                            </button><br />filter:verified</td>
-                                        <td>認証済みユーザーのみ</td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <button id="" class=" btn btn-gray lsf-icon" title="add" onclick="copy(' lang：ja')">
-                                                日本語
-                                            </button><br />lang：ja</td>
-                                        <td>日本語のみ検索</td>
-                                    </tr>
-                                </table>
-                            </div><!-- .tab-pane -->
-                            <div id="img2" class="tab-pane">
-                                <table id="" class="table tblCommand">
-                                    <tr>
-                                        <td>
-                                            <button id="" class=" btn btn-gray lsf-icon" title="add" onclick="copy(' min_faves:10')">
-                                                10♡以上
-                                            </button><br />min_faves:10</td>
-                                        <td>10以上いいねされたツイートのみ<br />
-                                            <span class="small text-secondary">（任意の数字に変更しましょう）</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <button id="" class=" btn btn-gray lsf-icon" title="add" onclick="copy(' min_retweets:10')">
-                                                10RT以上
-                                            </button><br />min_retweets:10</td>
-                                        <td>
-                                            10以上リツイートされたツイートのみ<br />
-                                            <span class="small text-secondary">（任意の数字に変更しましょう）</span>
-                                            </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <button id="" class=" btn btn-gray lsf-icon" title="add" onclick="copy(' since:yyyy-mm-dd')">
-                                                日付以降
-                                            </button><br />since:yyyy-mm-dd</td>
-                                        <td>yyyy年mm月dd日以降のツイートのみ<br />
-                                            <span class="small text-secondary">（任意の日付に変更しましょう）
-                                            <br />
-                                            例：2022年2月22日以降ならsince:2022-02-22</span></td>
-                                    </tr>
-                                    
-                                    <tr>
-                                        <td>
-                                            <button id="" class=" btn btn-gray lsf-icon" title="add" onclick="copy(' until:yyyy-mm-dd')">
-                                                日付まで
-                                            </button><br />until:yyyy-mm-dd</td>
-                                        <td>yyyy年mm月dd日までのツイートのみ
-                                            <span class="small text-secondary">（任意の日付に変更しましょう）
-                                            <br />
-                                            例：2022年2月22日までならuntil:2022-02-22</span></td>
-                                    </tr>
-                                </table>
-                            </div><!-- .tab-pane -->
                             <div id="img1" class="tab-pane">
                                 <table id="" class="table tblCommand">
                                     <tr>
@@ -304,6 +217,95 @@
                                             ハッシュタグで検索する
                                             <span class="small text-secondary">例：「#定期」</span>
                                             </td>
+                                    </tr>
+                                </table>
+                            </div><!-- .tab-pane -->
+                            
+                            <div id="img2" class="tab-pane">
+                                <table id="" class="table tblCommand">
+                                    <tr>
+                                        <td>
+                                            <button id="" class=" btn btn-gray lsf-icon" title="add" onclick="copy(' min_faves:10')">
+                                                10♡以上
+                                            </button><br />min_faves:10</td>
+                                        <td>10以上いいねされたツイートのみ<br />
+                                            <span class="small text-secondary">（任意の数字に変更しましょう）</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <button id="" class=" btn btn-gray lsf-icon" title="add" onclick="copy(' min_retweets:10')">
+                                                10RT以上
+                                            </button><br />min_retweets:10</td>
+                                        <td>
+                                            10以上リツイートされたツイートのみ<br />
+                                            <span class="small text-secondary">（任意の数字に変更しましょう）</span>
+                                            </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <button id="" class=" btn btn-gray lsf-icon" title="add" onclick="copy(' since:yyyy-mm-dd')">
+                                                日付以降
+                                            </button><br />since:yyyy-mm-dd</td>
+                                        <td>yyyy年mm月dd日以降のツイートのみ<br />
+                                            <span class="small text-secondary">（任意の日付に変更しましょう）
+                                            <br />
+                                            例：2022年2月22日以降ならsince:2022-02-22</span></td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>
+                                            <button id="" class=" btn btn-gray lsf-icon" title="add" onclick="copy(' until:yyyy-mm-dd')">
+                                                日付まで
+                                            </button><br />until:yyyy-mm-dd</td>
+                                        <td>yyyy年mm月dd日までのツイートのみ
+                                            <span class="small text-secondary">（任意の日付に変更しましょう）
+                                            <br />
+                                            例：2022年2月22日までならuntil:2022-02-22</span></td>
+                                    </tr>
+                                </table>
+                            </div><!-- .tab-pane -->
+                            
+                            <div id="img3" class="tab-pane active">
+                                <table id="" class="table tblCommand">
+                                    <tr>
+                                        <td>
+                                            <button id="" class=" btn btn-gray lsf-icon" title="add" onclick="copy(' filter:images')">
+                                                画像
+                                            </button><br />filter:images
+                                        </td>
+                                        <td>画像が含まれたツイートのみ</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <button id="" class=" btn btn-gray lsf-icon" title="add" onclick="copy(' filter:media')">
+                                                画像か動画
+                                            </button><br />
+                                            filter:media
+                                        </td>
+                                        <td>画像か動画が含まれたツイートのみ</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <button id="" class=" btn btn-gray lsf-icon" title="add" onclick="copy(' filter:follows')">
+                                                フォロー中
+                                            </button><br />
+                                            filter:follows
+                                        </td>
+                                        <td>フォロー中のユーザーのみ</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <button id="" class=" btn btn-gray lsf-icon" title="add" onclick="copy(' filter:verified')">
+                                                認証済み
+                                            </button><br />filter:verified</td>
+                                        <td>認証済みユーザーのみ</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <button id="" class=" btn btn-gray lsf-icon" title="add" onclick="copy(' lang：ja')">
+                                                日本語
+                                            </button><br />lang：ja</td>
+                                        <td>日本語のみ検索</td>
                                     </tr>
                                 </table>
                             </div><!-- .tab-pane -->
