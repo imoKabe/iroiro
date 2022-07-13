@@ -37,6 +37,10 @@
         #history td{
             vertical-align: middle;
         }
+        #history td:nth-child(3){
+            width:5.5em;
+
+        }
         .hisTxt:hover{
             cursor: pointer;
             background-color: #eee;
@@ -47,17 +51,20 @@
         .table td {
             padding:0.5em !important;
         }
-        input[type="search"]::-webkit-search-cancel-button {
-            -webkit-appearance: searchfield-cancel-button;
-         }
-         .form-control,#btnSearch{
+        
+         .form-control,#btnSearch,.searchclear{
             height:calc(2.75rem + 2px);
          }
-      
+         .btn-link:hover{
+            text-decoration: none;
+         }
+         .lsf-icon-only:before{
+            margin-right: 0 !important;
+         }
 
     </style>
 </head>
-<body>
+<body onload="Form_Load()">
     <nav class="navbar navbar-expand navbar-dark bg-info">
         <a class="navbar-brand lsf-icon" title="spanner" href="./index.html">imoTools</a>
 
@@ -84,7 +91,7 @@
                         <a class="dropdown-item active" href="./nombreTool.html">ページ数からノンブル分かるやつ</a>
                         <a class="dropdown-item " href="./torisetuTool.html">匿名箱のトリセツジェネレーター</a>
                         <a class="dropdown-item" href="./randomEchiTool.html">ランダムえちえちプロット</a>
-                        <a class="dropdown-item" href="./TwiSearch.html">ツイ検索して履歴も残すやつ</a>
+                        <a class="dropdown-item" href="./TwiSearch.html">コマンド検索して履歴も残すやつ</a>
                     </div>
                 </li>
                 <li class="nav-item">
@@ -98,14 +105,14 @@
     <article>
         <div class="container">
             <div class="row">
-                    <div class="pl-1 col-12">
-                        <div class="alert alert-warning" role="alert">
-                            開発中！偶然見てしまった方はスルーしてください。
-                        </div>
-                  
+                    <div class="pl-3 col-12">
+                        
+                        <h4 class="mb-3 mt-3">Twitterでコマンド検索して履歴も残すやつ</h4>
+
                         <div class="input-group sticky-top ">
-                            <input type="search" id="txtSearch" class="form-control" placeholder="ツイッター検索ワード" value="" />
+                            <input type="search" id="txtSearch" class="form-control" placeholder="ツイッター検索ワード" />
                             <div class="input-group-append">
+                                <span id="btnClear" class="searchclear btn btn-link lsf-icon lsf-icon-only" title="remove" ></span>
                                 <button id="btnSearch" class=" btn btn-gray lsf-icon" title="search">検索</button>
                             </div>
                         </div>
@@ -115,17 +122,16 @@
                         <table id="history" class="table">
                             <tr class="hisRow">
                                 <td class="lsf text-center">search</td>
-                                <td class="hisTxt">
-                                    from:@onote_etc min_faves:10</td>
+                                <td class="hisTxt">from:@onote_etc min_faves:10</td>
                                 <td>
-                                    <button class="btnDel btn btn-gray lsf-icon" title="">削除</button>
+                                    <button class="btnDel btn btn-gray lsf-icon lsf-icon-only" title="delete"></button>
                                 </td>
                             </tr>
                             <tr class="hisRow">
                                 <td class="lsf text-center">search</td>
                                 <td class="hisTxt">@onote_etc "記事" OR "note" OR "講座"</td>
                                 <td>
-                                    <button class="btnDel btn btn-gray lsf-icon" title="">削除</button>
+                                    <button class="btnDel btn btn-gray lsf-icon lsf-icon-only" title="delete"></button>
                                 </td>
                             </tr>
                         </table>
@@ -333,29 +339,27 @@
                                             <span class="small text-secondary">（【pixivユーザー名】を検索したいユーザー名に置き換えましょう）</span>
                                             </td>
                                     </tr>
+                                    <tr>
+                                        <td>
+                                            <button id="" class=" btn btn-gray lsf-icon" title="add" onclick="copy(' @onote_etc &quot;記事&quot; OR &quot;note&quot; OR &quot;講座&quot; min_faves:30')">
+                                                効率おTips
+                                            </button><br />@onote_etc "記事" OR "note" OR "講座" min_faves:30</td>
+                                        <td>
+                                            忙しい人のための創作おTips<br />
+                                            </td>
+                                    </tr>
                                 </table>
                             </div><!-- .tab-pane -->
                           </div><!-- .tab-content -->
 
-                      
-
-                        <button id="btnSave"
-                                class="btn btn-secondary lsf-icon"
-                                title="time"
-                                onclick="saveCookie()">
-                            しばらく保存する
-                        </button><br />
-                        <button id="btnHukkatu"
-                                class="btn btn-secondary lsf-icon"
-                                title="time"
-                                onclick="returnCookie()">
-                            テストCookie復帰
-                        </button><br />
                 
                     </div>
                     <hr />
                     <div class="txtArea">
-                        <h2 class="mb-3">「ツイ検索して履歴も残すやつ」の使い方</h2>
+                        <h2 class="mb-3">「Twitterでコマンド検索して履歴も残すやつ」の使い方</h2>
+                        <p>
+                            「コマンドをいちいち探すのがだるい！」「ツイッター検索でよく使う履歴を残したい！」という人向け
+                         </p>
                         <p>
                            検索ワードを入力して「検索」ボタンを押すと、ツイッター検索ができます。<br />
                            検索履歴が最大10個までCookieに保存されます。
@@ -366,6 +370,13 @@
 
                         <img src="./.png" width="300px" />
                         <br />
+                        <h4 class="">うまく検索できないとき</h4>
+                        <p>
+                           ・コマンドの説明を参考に、検索ワードを入れたり変更したりしてください。<br />
+                           ・「話題」タブで検索結果がなくとも、「最新」タブに切り替えるとヒットすることがあります。<br />
+                           ・検索ワードを変えずにツイッターアプリで再度検索を実行すると、ヒットすることがあります。<br />
+
+                        </p>
                         <br />
                         <h4 class="">Cookieについて</h4>
                         Cookieとは、閲覧者のブラウザにテキストデータを保存する機能で、多くのウェブサイトに使われています。<br />
