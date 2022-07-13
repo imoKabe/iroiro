@@ -226,7 +226,7 @@
                                                 10♡以上
                                             </button><br />min_faves:10</td>
                                         <td>10以上いいねされたツイートのみ<br />
-                                            <span class="small text-secondary">（任意の数字に変更しましょう）</span></td>
+                                            <span class="small text-secondary"></span></td>
                                     </tr>
                                     <tr>
                                         <td>
@@ -235,7 +235,7 @@
                                             </button><br />min_retweets:10</td>
                                         <td>
                                             10以上リツイートされたツイートのみ<br />
-                                            <span class="small text-secondary">（任意の数字に変更しましょう）</span>
+                                            <span class="small text-secondary"></span>
                                             </td>
                                     </tr>
                                     <tr>
@@ -244,8 +244,7 @@
                                                 日付以降
                                             </button><br />since:yyyy-mm-dd</td>
                                         <td>yyyy年mm月dd日以降のツイートのみ<br />
-                                            <span class="small text-secondary">（任意の日付に変更しましょう）
-                                            <br />
+                                            <span class="small text-secondary">
                                             例：2022年2月22日以降ならsince:2022-02-22</span></td>
                                     </tr>
                                     
@@ -254,9 +253,8 @@
                                             <button id="" class=" btn btn-gray lsf-icon" title="add" onclick="copy(' until:yyyy-mm-dd')">
                                                 日付まで
                                             </button><br />until:yyyy-mm-dd</td>
-                                        <td>yyyy年mm月dd日までのツイートのみ
-                                            <span class="small text-secondary">（任意の日付に変更しましょう）
-                                            <br />
+                                        <td>yyyy年mm月dd日までのツイートのみ<br />
+                                            <span class="small text-secondary">
                                             例：2022年2月22日までならuntil:2022-02-22</span></td>
                                     </tr>
                                 </table>
@@ -300,11 +298,24 @@
                                     <tr>
                                         <td>
                                             <button id="" class=" btn btn-gray lsf-icon" title="add" onclick="copy(' filter:links')">
-                                                リンク
+                                                リンク<span class="small">（画像含）</span>
                                             </button><br />
                                             filter:links
                                         </td>
-                                        <td>URLリンクが含まれたツイートのみ</td>
+                                        <td>URLリンクが含まれたツイートのみ<br />
+                                            <span class="small text-secondary">（画像や動画も含まれます）</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <button id="" class=" btn btn-gray lsf-icon" title="add" onclick="copy(' filter:links -filter:media')">
+                                                リンク<span class="small">（画像無）</span>
+                                            </button><br />
+                                            filter:links -filter:media
+                                        </td>
+                                        <td>URLリンクが含まれたツイートのみ<br />
+                                            <span class="small text-secondary">（画像や動画を除外します）</span>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td>
@@ -324,7 +335,7 @@
                                             </button><br />"検索語句" OR @存在しないユーザーID</td>
                                         <td>
                                             ユーザー名を検索対象とせず、ツイート本文のみの検索結果を表示します。<br />
-                                            <span class="small text-secondary">（@以降は存在しないIDならなんでもOKです）</span>
+                                            <span class="small text-secondary">（@以降は存在しないIDならなんでもOK）</span>
                                         </td>
                                     </tr>
                                     <tr>
@@ -345,6 +356,15 @@
                                         <td>
                                             pixivの共有機能からシェアされたツイートを検索<br />
                                             <span class="small text-secondary">（【pixivユーザー名】を検索したいユーザー名に置き換えましょう）</span>
+                                            </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <button id="" class=" btn btn-gray lsf-icon" title="add" onclick="copy(' #漫画が読めるハッシュタグ min_faves:10000')">
+                                                バズ漫画
+                                            </button><br />#漫画が読めるハッシュタグ min_faves:10000</td>
+                                        <td>
+                                            バズった漫画を検索<br />
                                             </td>
                                     </tr>
                                     <tr>
@@ -397,7 +417,7 @@
                         当ページでは、同ブラウザによる前回の入力情報の復元にのみ使用しています。有効期限は約半年です。<br />
                         基本的には、画面のリフレッシュ時に前回検索したときの状態を復元します。<br />
                         
-                        <br /><br />
+                        <br />
                         <h4 class="">利用規約</h4>
                         常識の範囲内の使用は完全フリーですが、シェア＆使ったよ報告していただけると嬉しいです。<br />
                         詳しい利用規約は<a href="./imoToolUsage.html">こちら</a>。<br />
