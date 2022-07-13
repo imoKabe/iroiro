@@ -2,6 +2,7 @@
 $(function () {
   // クッキーから復元
   returnCookie();
+  
 });
 
 // Cookieから復帰
@@ -83,6 +84,9 @@ $(".hisRow .hisTxt").click(function () {
   //検索テキスト上書き
   $("#txtSearch").val($(this).text());
 
+  $("#txtSearch").focus();
+  $("#btnClear").show();
+  
   //cookie
   saveCookie();
 });
@@ -103,6 +107,9 @@ $(".btnDel").click(function () {
 function copy(txt) {
   var get = String($("#txtSearch").val());
   $("#txtSearch").val(get + txt);
+  $("#txtSearch").focus();
+  $("#btnClear").show();
+
 }
 
 //Cookieに保存
@@ -125,3 +132,27 @@ function twiSearch() {
   var url = "https://twitter.com/search?q=" + word;
   window.open(url);
 }
+
+//クリアボタン
+$('#btnClear').click(function(){
+  $(this).parent().parent().find('input').val('');
+  $(this).hide();
+});
+
+//入力したらクリアボタン表示
+window.addEventListener('DOMContentLoaded',function(){
+  
+  $("#btnClear").hide();
+  document.getElementById('txtSearch').addEventListener('keyup',function(){
+  if (this.value.length < 1) {
+    $("#btnClear").hide();
+  } else {
+    $("#btnClear").show();
+  }
+  },false);
+  document.getElementById('txtSearch').addEventListener('change',function(){
+  if (this.value.length < 1) {
+    $("#btnClear").hide();
+  }
+  },false);
+  },false);
