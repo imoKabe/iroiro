@@ -129,7 +129,7 @@ function saveCookie() {
 //検索
 function twiSearch() {
   var word =encodeURIComponent(String($("#txtSearch").val()));
-  var url = "https://twitter.com/search?q=" + word;
+  var url = "https://twitter.com/search?q=" + word+"&src=typed_query";
   window.open(url);
 }
 
